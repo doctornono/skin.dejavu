@@ -1,0 +1,8 @@
+{
+    "name": "alkoFlix - Select",
+    "plugin": "plugin.video.alkoflix",
+    "priority": 400,
+    "is_resolvable": "false",
+    "play_movie": "plugin://plugin.video.alkoflix/?mode=tmdbh_select&media_type=movie&query={name}&year={year}&poster={poster}&title={title}&tmdb_id={id}&autoplay=false",
+    "play_episode": "plugin://plugin.video.alkoflix/?mode=tmdbh_select&media_type=episode&query={showname}&year={year}&season={season}&episode={episode}&ep_name={title}&tmdb_id={tmdb}&premiered={firstaired}&autoplay=false&ep_tmdb_id={eptmdb}&ep_imdb_id={epimdb}&ep_tvdb_id={eptvdb}"
+}

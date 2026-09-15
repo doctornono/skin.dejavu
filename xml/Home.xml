@@ -1,0 +1,140 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<window>
+  <defaultcontrol>1001</defaultcontrol>
+  <backgroundcolor>FF03070C</backgroundcolor>
+  <onload>RunScript(skin.dejavu.poc)</onload>
+  <onload>RunScript(skin.dejavu.poc,watch_header)</onload>
+  <controls>
+
+    <control type="image">
+      <left>0</left><top>0</top><width>1920</width><height>1080</height>
+      <texture>colors/black.png</texture>
+      <colordiffuse>FF03070C</colordiffuse>
+    </control>
+
+    <include content="DejaVuHeader">
+      <param name="ondown" value="111" />
+    </include>
+
+    <!-- HERO follows the selected rail item (dv.hero.rail) -->
+    <control type="image" id="1200">
+      <left>0</left><top>64</top><width>1920</width><height>496</height>
+      <texture>$VAR[HeroFanartVar]</texture>
+      <aspectratio>scale</aspectratio>
+    </control>
+    <control type="image">
+      <left>0</left><top>64</top><width>1920</width><height>496</height>
+      <texture>hero_gradient_v08.png</texture><aspectratio>stretch</aspectratio>
+    </control>
+
+    <control type="image">
+      <left>72</left><top>96</top><width>180</width><height>28</height>
+      <texture>dv_chip_v08.png</texture>
+      <aspectratio>stretch</aspectratio>
+    </control>
+    <control type="label">
+      <left>72</left><top>96</top><width>180</width><height>28</height>
+      <label>$VAR[HeroTypeChipVar]</label><font>font_flag</font><textcolor>FFFFFFFF</textcolor>
+      <align>center</align><aligny>center</aligny>
+    </control>
+    <control type="image">
+      <left>1580</left><top>96</top><width>220</width><height>330</height>
+      <texture>$VAR[HeroPosterVar]</texture>
+      <aspectratio align="center" aligny="center">keep</aspectratio>
+      <visible>String.IsEqual(Window.Property(dv.hero.mode),rail) + !String.IsEmpty($VAR[HeroPosterVar])</visible>
+    </control>
+    <control type="label">
+      <left>72</left><top>138</top><width>920</width><height>64</height>
+      <label>$VAR[HeroLabelVar]</label>
+      <font>font45_title</font><textcolor>FFFFFFFF</textcolor>
+      <scroll>true</scroll>
+    </control>
+    <control type="label">
+      <left>72</left><top>202</top><width>900</width><height>28</height>
+      <label>$VAR[HeroMetaVar]</label>
+      <font>font13</font><textcolor>FFE3E7EC</textcolor>
+      <visible>!String.IsEqual(Window.Property(dv.hero.mode),rail)</visible>
+    </control>
+    <control type="label">
+      <left>72</left><top>230</top><width>900</width><height>24</height>
+      <label>$VAR[HeroCastVar]</label>
+      <font>font11</font><textcolor>FFC5CCD4</textcolor>
+      <scroll>true</scroll>
+      <visible>!String.IsEqual(Window.Property(dv.hero.mode),rail) + !String.IsEmpty($VAR[HeroCastVar])</visible>
+    </control>
+    <control type="label">
+      <left>72</left><top>254</top><width>900</width><height>24</height>
+      <label>$VAR[HeroStatusVar]</label>
+      <font>font11</font><textcolor>FFFFD54F</textcolor>
+      <visible>!String.IsEqual(Window.Property(dv.hero.mode),rail) + !String.IsEmpty($VAR[HeroStatusVar])</visible>
+    </control>
+    <control type="label">
+      <left>72</left><top>280</top><width>820</width><height>54</height>
+      <label>$VAR[HeroPlotVar]</label>
+      <font>font11</font><textcolor>FFE0E4EA</textcolor>
+      <wrapmultiline>true</wrapmultiline>
+    </control>
+    <control type="image">
+      <left>72</left><top>348</top><width>400</width><height>6</height>
+      <texture>dv_progress_bg_v08.png</texture>
+      <visible>!String.IsEqual(Window.Property(dv.hero.mode),rail) + Integer.IsGreater($VAR[HeroPercentBarWidthVar],0)</visible>
+    </control>
+    <control type="image">
+      <left>72</left><top>348</top><width>$VAR[HeroPercentBarWidthVar]</width><height>6</height>
+      <texture>dv_progress_fg_v08.png</texture>
+      <visible>!String.IsEqual(Window.Property(dv.hero.mode),rail) + Integer.IsGreater($VAR[HeroPercentBarWidthVar],0)</visible>
+    </control>
+
+    <include content="DejaVuPageSlot">
+      <param name="page_slot" value="0" />
+      <param name="grouplist_id" value="2000" /><param name="scrollbar_id" value="1500" />
+      <param name="l1" value="111" /><param name="l2" value="112" /><param name="l3" value="113" /><param name="l4" value="114" />
+      <param name="l5" value="115" /><param name="l6" value="116" /><param name="l7" value="117" /><param name="l8" value="118" />
+      <param name="g1" value="2010" /><param name="g2" value="2020" /><param name="g3" value="2030" /><param name="g4" value="2040" />
+      <param name="g5" value="2050" /><param name="g6" value="2060" /><param name="g7" value="2070" /><param name="g8" value="2080" />
+      <param name="a1" value="2111" /><param name="a2" value="2112" /><param name="a3" value="2113" /><param name="a4" value="2114" />
+      <param name="a5" value="2115" /><param name="a6" value="2116" /><param name="a7" value="2117" /><param name="a8" value="2118" />
+    </include>
+    <include content="DejaVuPageSlot">
+      <param name="page_slot" value="1" />
+      <param name="grouplist_id" value="2200" /><param name="scrollbar_id" value="1520" />
+      <param name="l1" value="211" /><param name="l2" value="212" /><param name="l3" value="213" /><param name="l4" value="214" />
+      <param name="l5" value="215" /><param name="l6" value="216" /><param name="l7" value="217" /><param name="l8" value="218" />
+      <param name="g1" value="3010" /><param name="g2" value="3020" /><param name="g3" value="3030" /><param name="g4" value="3040" />
+      <param name="g5" value="3050" /><param name="g6" value="3060" /><param name="g7" value="3070" /><param name="g8" value="3080" />
+      <param name="a1" value="2211" /><param name="a2" value="2212" /><param name="a3" value="2213" /><param name="a4" value="2214" />
+      <param name="a5" value="2215" /><param name="a6" value="2216" /><param name="a7" value="2217" /><param name="a8" value="2218" />
+    </include>
+    <include content="DejaVuPageSlot">
+      <param name="page_slot" value="2" />
+      <param name="grouplist_id" value="2400" /><param name="scrollbar_id" value="1540" />
+      <param name="l1" value="311" /><param name="l2" value="312" /><param name="l3" value="313" /><param name="l4" value="314" />
+      <param name="l5" value="315" /><param name="l6" value="316" /><param name="l7" value="317" /><param name="l8" value="318" />
+      <param name="g1" value="4010" /><param name="g2" value="4020" /><param name="g3" value="4030" /><param name="g4" value="4040" />
+      <param name="g5" value="4050" /><param name="g6" value="4060" /><param name="g7" value="4070" /><param name="g8" value="4080" />
+      <param name="a1" value="2311" /><param name="a2" value="2312" /><param name="a3" value="2313" /><param name="a4" value="2314" />
+      <param name="a5" value="2315" /><param name="a6" value="2316" /><param name="a7" value="2317" /><param name="a8" value="2318" />
+    </include>
+    <include content="DejaVuPageSlot">
+      <param name="page_slot" value="3" />
+      <param name="grouplist_id" value="2600" /><param name="scrollbar_id" value="1560" />
+      <param name="l1" value="411" /><param name="l2" value="412" /><param name="l3" value="413" /><param name="l4" value="414" />
+      <param name="l5" value="415" /><param name="l6" value="416" /><param name="l7" value="417" /><param name="l8" value="418" />
+      <param name="g1" value="5010" /><param name="g2" value="5020" /><param name="g3" value="5030" /><param name="g4" value="5040" />
+      <param name="g5" value="5050" /><param name="g6" value="5060" /><param name="g7" value="5070" /><param name="g8" value="5080" />
+      <param name="a1" value="2411" /><param name="a2" value="2412" /><param name="a3" value="2413" /><param name="a4" value="2414" />
+      <param name="a5" value="2415" /><param name="a6" value="2416" /><param name="a7" value="2417" /><param name="a8" value="2418" />
+    </include>
+
+    <control type="label">
+      <left>58</left><top>1040</top><width>1200</width><height>22</height>
+      <label>← → Parcourir    ↑ ↓ Changer de section    OK Sélectionner    Retour Revenir</label>
+      <font>font10</font><textcolor>FF68717D</textcolor>
+    </control>
+    <control type="label">
+      <left>1680</left><top>1040</top><width>180</width><height>22</height>
+      <label>$INFO[System.Time]</label><font>font10</font><textcolor>FF68717D</textcolor><align>right</align>
+    </control>
+
+  </controls>
+</window>

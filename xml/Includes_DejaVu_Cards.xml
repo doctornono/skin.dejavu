@@ -1,0 +1,671 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<includes>
+	<include name="DejaVuCardItem">
+		<param name="focused">false</param>
+		<param name="show_watchlist">false</param>
+		<param name="art">$VAR[CardFanartVar]</param>
+		<param name="shadow_left">10</param>
+		<param name="shadow_top">14</param>
+		<param name="media_left">6</param>
+		<param name="media_top">6</param>
+		<param name="media_width">280</param>
+		<param name="media_height">158</param>
+		<param name="title_left">16</param>
+		<param name="title_top">118</param>
+		<param name="title_width">254</param>
+		<param name="title_font">font10</param>
+		<param name="focus_left">4</param>
+		<param name="focus_top">4</param>
+		<param name="focus_width">284</param>
+		<param name="focus_height">162</param>
+		<definition>
+			<control type="image">
+				<left>$PARAM[shadow_left]</left>
+				<top>$PARAM[shadow_top]</top>
+				<width>$PARAM[media_width]</width>
+				<height>$PARAM[media_height]</height>
+				<texture>dv_card_shadow_v08.png</texture>
+			</control>
+			<control type="image">
+				<left>$PARAM[media_left]</left>
+				<top>$PARAM[media_top]</top>
+				<width>$PARAM[media_width]</width>
+				<height>$PARAM[media_height]</height>
+				<texture>$PARAM[art]</texture>
+				<aspectratio>scale</aspectratio>
+			</control>
+			<control type="image">
+				<left>$PARAM[media_left]</left>
+				<top>$PARAM[media_top]</top>
+				<width>$PARAM[media_width]</width>
+				<height>$PARAM[media_height]</height>
+				<texture>dv_card_overlay_v08.png</texture>
+			</control>
+			<control type="image">
+				<left>$PARAM[media_left]</left>
+				<top>$PARAM[media_top]</top>
+				<width>$PARAM[media_width]</width>
+				<height>$PARAM[media_height]</height>
+				<texture>dv_card_border_v08.png</texture>
+				<bordersize>1</bordersize>
+			</control>
+			<control type="label">
+				<left>$PARAM[title_left]</left>
+				<top>12</top>
+				<width>70</width>
+				<height>22</height>
+				<label>$INFO[ListItem.Property(WatchedLabel)]</label>
+				<font>font_flag</font>
+				<textcolor>FFFFFFFF</textcolor>
+				<visible>!String.IsEmpty(ListItem.Property(WatchedLabel))</visible>
+			</control>
+			<control type="label">
+				<left>170</left>
+				<top>12</top>
+				<width>106</width>
+				<height>22</height>
+				<label>$INFO[ListItem.Property(RatingLabel)]</label>
+				<font>font10</font>
+				<textcolor>FFFFD54F</textcolor>
+				<align>right</align>
+				<visible>!String.IsEmpty(ListItem.Property(RatingLabel))</visible>
+			</control>
+			<control type="label">
+				<left>$PARAM[title_left]</left>
+				<top>$PARAM[title_top]</top>
+				<width>$PARAM[title_width]</width>
+				<height>24</height>
+				<label>$INFO[ListItem.Label]</label>
+				<font>$PARAM[title_font]</font>
+				<textcolor>FFFFFFFF</textcolor>
+			</control>
+			<control type="label">
+				<left>216</left>
+				<top>$PARAM[title_top]</top>
+				<width>60</width>
+				<height>24</height>
+				<label>$INFO[ListItem.Property(PercentPlayed), ,%]</label>
+				<font>font10</font>
+				<textcolor>FFE5E8EC</textcolor>
+				<align>right</align>
+				<visible>Integer.IsGreater(ListItem.Property(PercentPlayed),0)</visible>
+			</control>
+			<control type="label">
+				<left>$PARAM[title_left]</left>
+				<top>140</top>
+				<width>140</width>
+				<height>20</height>
+				<label>$INFO[ListItem.Season,S]$INFO[ListItem.Episode, · E]</label>
+				<font>font10</font>
+				<textcolor>FFE1E5EA</textcolor>
+				<visible>Integer.IsGreater(ListItem.Season,0) | Integer.IsGreater(ListItem.Episode,0)</visible>
+			</control>
+			<control type="image">
+				<left>16</left>
+				<top>146</top>
+				<width>260</width>
+				<height>6</height>
+				<texture>dv_progress_bg_v08.png</texture>
+				<visible>Integer.IsGreater(ListItem.Property(PercentPlayed),0)</visible>
+			</control>
+			<control type="image">
+				<left>16</left>
+				<top>146</top>
+				<width>$INFO[ListItem.Property(PercentBarWidth)]</width>
+				<height>6</height>
+				<texture>dv_progress_fg_v08.png</texture>
+				<visible>Integer.IsGreater(ListItem.Property(PercentPlayed),0)</visible>
+			</control>
+			<control type="button">
+				<left>246</left>
+				<top>16</top>
+				<width>34</width>
+				<height>34</height>
+				<label></label>
+				<texturefocus>dv_button_v08.png</texturefocus>
+				<texturenofocus>dv_button_v08.png</texturenofocus>
+				<onclick>RunScript(script.dejavu,action=toggle_watchlist)</onclick>
+				<visible>String.IsEqual($PARAM[show_watchlist],true)</visible>
+			</control>
+			<control type="image">
+				<left>248</left>
+				<top>18</top>
+				<width>30</width>
+				<height>30</height>
+				<texture>icons/lucide/plus.png</texture>
+				<visible>String.IsEqual($PARAM[show_watchlist],true)</visible>
+			</control>
+		</definition>
+	</include>
+
+	<include name="DejaVuCardFocusRing">
+		<param name="width">308</param>
+		<param name="height">180</param>
+		<definition>
+			<control type="image">
+				<left>0</left><top>0</top>
+				<width>$PARAM[width]</width><height>5</height>
+				<texture>dv_accent_v08.png</texture>
+			</control>
+			<control type="image">
+				<left>0</left><top>0</top>
+				<width>5</width><height>$PARAM[height]</height>
+				<texture>dv_accent_v08.png</texture>
+			</control>
+			<control type="image">
+				<left>0</left><bottom>0</bottom>
+				<width>$PARAM[width]</width><height>5</height>
+				<texture>dv_accent_v08.png</texture>
+			</control>
+			<control type="image">
+				<right>0</right><top>0</top>
+				<width>5</width><height>$PARAM[height]</height>
+				<texture>dv_accent_v08.png</texture>
+			</control>
+		</definition>
+	</include>
+
+	<include name="DejaVuRail">
+		<param name="group_id">2010</param>
+		<param name="list_id">111</param>
+		<param name="seeall_id">2111</param>
+		<param name="slot">1</param>
+		<param name="title"></param>
+		<param name="content"></param>
+		<param name="seeall"></param>
+		<param name="onclick">RunPlugin(plugin://skin.dejavu.poc/?action=open_details)</param>
+		<param name="limit">6</param>
+		<param name="onup">1001</param>
+		<param name="ondown">1001</param>
+		<param name="onleft">1001</param>
+		<param name="seeall_onup">1001</param>
+		<param name="page_slot">0</param>
+		<definition>
+			<control type="group" id="$PARAM[group_id]">
+				<visible>!String.IsEmpty(Window(Home).Property(dv.s$PARAM[page_slot].r$PARAM[slot].content))</visible>
+				<width>1810</width>
+				<height>226</height>
+				<control type="image">
+					<left>0</left><top>6</top><width>4</width><height>22</height>
+					<texture>dv_accent_v08.png</texture>
+				</control>
+				<control type="label">
+					<left>16</left><top>0</top><width>1400</width><height>34</height>
+					<label>$INFO[Window(Home).Property(dv.s$PARAM[page_slot].r$PARAM[slot].title)]</label>
+					<font>font20_title</font>
+					<textcolor>FFFFFFFF</textcolor>
+				</control>
+				<control type="button" id="$PARAM[seeall_id]">
+					<left>1650</left><top>0</top><width>160</width><height>34</height>
+					<label>Tout voir  →</label>
+					<font>font10</font>
+					<textcolor>FFD5D9E0</textcolor>
+					<focusedcolor>FFFFFFFF</focusedcolor>
+					<align>center</align>
+					<aligny>center</aligny>
+					<texturefocus>dv_button_focus_v08.png</texturefocus>
+					<texturenofocus>dv_button_v08.png</texturenofocus>
+					<onclick>ClearProperty(dv.list.stack,Home)</onclick>
+					<onclick>ClearProperty(dv.list.prev,Home)</onclick>
+					<onclick>ClearProperty(dv.list.next,Home)</onclick>
+					<onclick>SetProperty(dv.list.rev,$INFO[System.Time],Home)</onclick>
+					<onclick>SetProperty(dv.list.title,$INFO[Window(Home).Property(dv.s$PARAM[page_slot].r$PARAM[slot].title)],Home)</onclick>
+					<onclick>SetProperty(dv.list.path,$INFO[Window(Home).Property(dv.s$PARAM[page_slot].r$PARAM[slot].seeall)],Home)</onclick>
+					<onclick>ActivateWindow(1116)</onclick>
+					<visible>!String.IsEmpty(Window(Home).Property(dv.s$PARAM[page_slot].r$PARAM[slot].seeall))</visible>
+					<ondown>$PARAM[list_id]</ondown>
+					<onup>$PARAM[seeall_onup]</onup>
+					<onleft>1001</onleft>
+					<onfocus>SetProperty(dv.hero.mode,rail)</onfocus>
+					<onfocus>SetProperty(dv.hero.rail,$PARAM[list_id])</onfocus>
+					<onfocus>SetProperty(dv.cache.$PARAM[page_slot].hero,$PARAM[list_id])</onfocus>
+					<onfocus>SetProperty(dv.hero.source,$INFO[Window(Home).Property(dv.s$PARAM[page_slot].r$PARAM[slot].source)])</onfocus>
+					<onfocus>SetProperty(dv.hero.label,$INFO[Window(Home).Property(dv.s$PARAM[page_slot].r$PARAM[slot].title)])</onfocus>
+					<onfocus>SetProperty(dv.hero.plot,$INFO[Window(Home).Property(dv.s$PARAM[page_slot].r$PARAM[slot].plot)])</onfocus>
+					<onfocus>SetProperty(dv.hero.fanart,$INFO[Window(Home).Property(dv.s$PARAM[page_slot].r$PARAM[slot].fanart)])</onfocus>
+					<onfocus>SetProperty(dv.hero.thumb,$INFO[Window(Home).Property(dv.s$PARAM[page_slot].r$PARAM[slot].poster)])</onfocus>
+					<onfocus>SetProperty(dv.hero.poster,$INFO[Window(Home).Property(dv.s$PARAM[page_slot].r$PARAM[slot].poster)])</onfocus>
+					<onfocus>SetProperty(dv.hero.itemfanart,$INFO[Container($PARAM[list_id]).ListItem.Art(fanart)])</onfocus>
+					<onfocus>SetProperty(dv.hero.itemposter,$INFO[Container($PARAM[list_id]).ListItem.Art(poster)])</onfocus>
+					<onfocus>ClearProperty(dv.hero.year)</onfocus>
+					<onfocus>ClearProperty(dv.hero.genre)</onfocus>
+					<onfocus>ClearProperty(dv.hero.cast)</onfocus>
+					<onfocus>ClearProperty(dv.hero.status)</onfocus>
+					<onfocus>ClearProperty(dv.hero.rating)</onfocus>
+					<onfocus>ClearProperty(dv.hero.barwidth)</onfocus>
+					<onfocus>ClearProperty(dv.hero.play)</onfocus>
+					<onfocus>ClearProperty(dv.hero.media)</onfocus>
+				</control>
+				<control type="panel" id="$PARAM[list_id]">
+					<left>0</left>
+					<top>40</top>
+					<width>1810</width>
+					<height>180</height>
+					<orientation>horizontal</orientation>
+					<focusposition>0</focusposition>
+					<scrolltime>150</scrolltime>
+					<wraparound>false</wraparound>
+					<onfocus>SetProperty(dv.hero.mode,item)</onfocus>
+					<onfocus>ClearProperty(dv.hero.poster)</onfocus>
+					<onfocus>ClearProperty(dv.hero.source)</onfocus>
+					<onfocus>ClearProperty(dv.hero.itemfanart)</onfocus>
+					<onfocus>ClearProperty(dv.hero.itemposter)</onfocus>
+					<onfocus>SetProperty(dv.hero.rail,$PARAM[list_id])</onfocus>
+					<onfocus>SetProperty(dv.cache.$PARAM[page_slot].hero,$PARAM[list_id])</onfocus>
+					<onfocus>SetProperty(dv.hero.fanart,$INFO[ListItem.Art(fanart)])</onfocus>
+					<onfocus>SetProperty(dv.hero.thumb,$INFO[ListItem.Art(thumb)])</onfocus>
+					<onfocus>SetProperty(dv.hero.label,$INFO[ListItem.Label])</onfocus>
+					<onfocus>SetProperty(dv.hero.plot,$INFO[ListItem.Plot])</onfocus>
+					<onfocus>SetProperty(dv.hero.year,$INFO[ListItem.Year])</onfocus>
+					<onfocus>SetProperty(dv.hero.genre,$INFO[ListItem.Property(GenreLabel)])</onfocus>
+					<onfocus>SetProperty(dv.hero.cast,$INFO[ListItem.Property(CastLabel)])</onfocus>
+					<onfocus>SetProperty(dv.hero.status,$INFO[ListItem.Property(StatusLabel)])</onfocus>
+					<onfocus>SetProperty(dv.hero.rating,$INFO[ListItem.Property(RatingLabel)])</onfocus>
+					<onfocus>SetProperty(dv.hero.barwidth,$INFO[ListItem.Property(PercentBarWidth)])</onfocus>
+					<onfocus>SetProperty(dv.hero.play,$INFO[ListItem.FileNameAndPath])</onfocus>
+					<onfocus>SetProperty(dv.hero.media,$INFO[ListItem.Property(media_type)])</onfocus>
+					<onup condition="!String.IsEmpty(Window(Home).Property(dv.s$PARAM[page_slot].r$PARAM[slot].seeall))">$PARAM[seeall_id]</onup>
+					<onup>$PARAM[onup]</onup>
+					<ondown>$PARAM[ondown]</ondown>
+					<onclick condition="!String.IsEmpty(ListItem.Property(universe_id))">ClearProperty(dv.list.stack,Home)</onclick>
+					<onclick condition="!String.IsEmpty(ListItem.Property(universe_id))">SetProperty(dv.list.rev,$INFO[System.Time],Home)</onclick>
+					<onclick condition="!String.IsEmpty(ListItem.Property(universe_id))">SetProperty(dv.list.title,$INFO[ListItem.Label],Home)</onclick>
+					<onclick condition="!String.IsEmpty(ListItem.Property(universe_id))">SetProperty(dv.list.path,plugin://skin.dejavu.poc/?action=universe&amp;id=$INFO[ListItem.Property(universe_id)],Home)</onclick>
+					<onclick condition="!String.IsEmpty(ListItem.Property(universe_id))">ActivateWindow(1116)</onclick>
+					<onclick condition="String.IsEmpty(ListItem.Property(universe_id))">$PARAM[onclick]</onclick>
+					<content target="videos" limit="$INFO[Window(Home).Property(dv.s$PARAM[page_slot].r$PARAM[slot].limit)]" browse="never">$INFO[Window(Home).Property(dv.s$PARAM[page_slot].r$PARAM[slot].content)]</content>
+					<itemlayout width="308" height="180">
+						<include content="DejaVuCardItem">
+							<param name="focused" value="false" />
+							<param name="show_watchlist" value="false" />
+						</include>
+					</itemlayout>
+					<focusedlayout width="308" height="180">
+						<include content="DejaVuCardItem">
+							<param name="focused" value="true" />
+							<param name="show_watchlist" value="true" />
+						</include>
+						<include content="DejaVuCardFocusRing">
+							<param name="width" value="308" />
+							<param name="height" value="180" />
+						</include>
+					</focusedlayout>
+				</control>
+				<control type="group">
+					<left>0</left>
+					<top>40</top>
+					<width>1810</width>
+					<height>180</height>
+					<visible>Container($PARAM[list_id]).IsUpdating</visible>
+					<control type="image">
+						<left>0</left><top>0</top><width>1810</width><height>180</height>
+						<texture colordiffuse="9903070C">colors/black.png</texture>
+					</control>
+					<control type="image">
+						<left>855</left><top>40</top><width>100</width><height>100</height>
+						<aspectratio>keep</aspectratio>
+						<texture colordiffuse="black">dialogs/extendedprogress/loading-back.png</texture>
+					</control>
+					<control type="image">
+						<left>855</left><top>40</top><width>100</width><height>100</height>
+						<aspectratio>keep</aspectratio>
+						<texture>dialogs/extendedprogress/loading.png</texture>
+						<animation effect="rotate" center="auto" start="360" end="0" time="1500" loop="true" condition="true">Conditional</animation>
+					</control>
+				</control>
+			</control>
+		</definition>
+	</include>
+
+	<include name="DejaVuPageSlot">
+		<param name="page_slot">0</param>
+		<param name="grouplist_id">2000</param>
+		<param name="scrollbar_id">1500</param>
+		<param name="l1">111</param><param name="l2">112</param><param name="l3">113</param><param name="l4">114</param>
+		<param name="l5">115</param><param name="l6">116</param><param name="l7">117</param><param name="l8">118</param>
+		<param name="g1">2010</param><param name="g2">2020</param><param name="g3">2030</param><param name="g4">2040</param>
+		<param name="g5">2050</param><param name="g6">2060</param><param name="g7">2070</param><param name="g8">2080</param>
+		<param name="a1">2111</param><param name="a2">2112</param><param name="a3">2113</param><param name="a4">2114</param>
+		<param name="a5">2115</param><param name="a6">2116</param><param name="a7">2117</param><param name="a8">2118</param>
+		<definition>
+			<control type="group">
+				<left>0</left><top>0</top><width>1920</width><height>1080</height>
+				<animation effect="slide" end="-4000,0" time="0" condition="!String.IsEqual(Window(Home).Property(dv.active.slot),$PARAM[page_slot])">Conditional</animation>
+				<control type="grouplist" id="$PARAM[grouplist_id]">
+					<left>50</left><top>560</top><width>1820</width><height>470</height>
+					<orientation>vertical</orientation><itemgap>12</itemgap>
+					<scrolltime tween="sine" easing="out">180</scrolltime>
+					<onleft>1001</onleft>
+					<pagecontrol>$PARAM[scrollbar_id]</pagecontrol>
+					<include content="DejaVuRail">
+						<param name="page_slot" value="$PARAM[page_slot]" />
+						<param name="group_id" value="$PARAM[g1]" /><param name="list_id" value="$PARAM[l1]" /><param name="seeall_id" value="$PARAM[a1]" />
+						<param name="slot" value="1" /><param name="onup" value="1001" /><param name="ondown" value="$PARAM[l2]" /><param name="seeall_onup" value="1001" />
+					</include>
+					<include content="DejaVuRail">
+						<param name="page_slot" value="$PARAM[page_slot]" />
+						<param name="group_id" value="$PARAM[g2]" /><param name="list_id" value="$PARAM[l2]" /><param name="seeall_id" value="$PARAM[a2]" />
+						<param name="slot" value="2" /><param name="onup" value="$PARAM[l1]" /><param name="ondown" value="$PARAM[l3]" /><param name="seeall_onup" value="$PARAM[l1]" />
+					</include>
+					<include content="DejaVuRail">
+						<param name="page_slot" value="$PARAM[page_slot]" />
+						<param name="group_id" value="$PARAM[g3]" /><param name="list_id" value="$PARAM[l3]" /><param name="seeall_id" value="$PARAM[a3]" />
+						<param name="slot" value="3" /><param name="onup" value="$PARAM[l2]" /><param name="ondown" value="$PARAM[l4]" /><param name="seeall_onup" value="$PARAM[l2]" />
+					</include>
+					<include content="DejaVuRail">
+						<param name="page_slot" value="$PARAM[page_slot]" />
+						<param name="group_id" value="$PARAM[g4]" /><param name="list_id" value="$PARAM[l4]" /><param name="seeall_id" value="$PARAM[a4]" />
+						<param name="slot" value="4" /><param name="onup" value="$PARAM[l3]" /><param name="ondown" value="$PARAM[l5]" /><param name="seeall_onup" value="$PARAM[l3]" />
+					</include>
+					<include content="DejaVuRail">
+						<param name="page_slot" value="$PARAM[page_slot]" />
+						<param name="group_id" value="$PARAM[g5]" /><param name="list_id" value="$PARAM[l5]" /><param name="seeall_id" value="$PARAM[a5]" />
+						<param name="slot" value="5" /><param name="onup" value="$PARAM[l4]" /><param name="ondown" value="$PARAM[l6]" /><param name="seeall_onup" value="$PARAM[l4]" />
+					</include>
+					<include content="DejaVuRail">
+						<param name="page_slot" value="$PARAM[page_slot]" />
+						<param name="group_id" value="$PARAM[g6]" /><param name="list_id" value="$PARAM[l6]" /><param name="seeall_id" value="$PARAM[a6]" />
+						<param name="slot" value="6" /><param name="onup" value="$PARAM[l5]" /><param name="ondown" value="$PARAM[l7]" /><param name="seeall_onup" value="$PARAM[l5]" />
+					</include>
+					<include content="DejaVuRail">
+						<param name="page_slot" value="$PARAM[page_slot]" />
+						<param name="group_id" value="$PARAM[g7]" /><param name="list_id" value="$PARAM[l7]" /><param name="seeall_id" value="$PARAM[a7]" />
+						<param name="slot" value="7" /><param name="onup" value="$PARAM[l6]" /><param name="ondown" value="$PARAM[l8]" /><param name="seeall_onup" value="$PARAM[l6]" />
+					</include>
+					<include content="DejaVuRail">
+						<param name="page_slot" value="$PARAM[page_slot]" />
+						<param name="group_id" value="$PARAM[g8]" /><param name="list_id" value="$PARAM[l8]" /><param name="seeall_id" value="$PARAM[a8]" />
+						<param name="slot" value="8" /><param name="onup" value="$PARAM[l7]" /><param name="ondown" value="1001" /><param name="seeall_onup" value="$PARAM[l7]" />
+					</include>
+				</control>
+				<control type="scrollbar" id="$PARAM[scrollbar_id]">
+					<left>1880</left><top>560</top><width>7</width><height>470</height>
+					<orientation>vertical</orientation><showonepage>false</showonepage>
+					<texturesliderbackground>dv_panel_v08.png</texturesliderbackground>
+					<texturesliderbar>dv_button_v08.png</texturesliderbar>
+					<texturesliderbarfocus>dv_button_focus_v08.png</texturesliderbarfocus>
+				</control>
+			</control>
+		</definition>
+	</include>
+
+	<include name="DejaVuGrid">
+		<param name="list_id">1300</param>
+		<param name="content"></param>
+		<param name="onclick"></param>
+		<param name="onup">1001</param>
+		<param name="ondown">1001</param>
+		<param name="item_width">362</param>
+		<param name="item_height">220</param>
+		<definition>
+			<control type="wraplist" id="$PARAM[list_id]">
+				<left>56</left>
+				<top>548</top>
+				<width>1810</width>
+				<height>460</height>
+				<orientation>horizontal</orientation>
+				<focusposition>0</focusposition>
+				<scrolltime>160</scrolltime>
+				<onup>$PARAM[onup]</onup>
+				<ondown>$PARAM[ondown]</ondown>
+				<onclick>$PARAM[onclick]</onclick>
+				<content target="videos">$PARAM[content]</content>
+				<itemlayout width="$PARAM[item_width]" height="$PARAM[item_height]">
+					<include content="DejaVuCardItem">
+						<param name="focused" value="false" />
+						<param name="show_watchlist" value="false" />
+						<param name="shadow_left" value="12" />
+						<param name="shadow_top" value="12" />
+						<param name="media_left" value="8" />
+						<param name="media_top" value="6" />
+						<param name="media_width" value="330" />
+						<param name="media_height" value="186" />
+						<param name="title_left" value="20" />
+						<param name="title_top" value="148" />
+						<param name="title_width" value="306" />
+						<param name="title_font" value="font11" />
+						<param name="focus_left" value="6" />
+						<param name="focus_top" value="4" />
+						<param name="focus_width" value="334" />
+						<param name="focus_height" value="190" />
+					</include>
+				</itemlayout>
+				<focusedlayout width="$PARAM[item_width]" height="$PARAM[item_height]">
+					<include content="DejaVuCardItem">
+						<param name="focused" value="true" />
+						<param name="show_watchlist" value="false" />
+						<param name="shadow_left" value="12" />
+						<param name="shadow_top" value="12" />
+						<param name="media_left" value="8" />
+						<param name="media_top" value="6" />
+						<param name="media_width" value="330" />
+						<param name="media_height" value="186" />
+						<param name="title_left" value="20" />
+						<param name="title_top" value="148" />
+						<param name="title_width" value="306" />
+						<param name="title_font" value="font11" />
+						<param name="focus_left" value="6" />
+						<param name="focus_top" value="4" />
+						<param name="focus_width" value="334" />
+						<param name="focus_height" value="190" />
+					</include>
+					<include content="DejaVuCardFocusRing">
+						<param name="width" value="$PARAM[item_width]" />
+						<param name="height" value="$PARAM[item_height]" />
+					</include>
+				</focusedlayout>
+			</control>
+			<control type="group">
+				<left>56</left>
+				<top>548</top>
+				<width>1810</width>
+				<height>460</height>
+				<visible>Container($PARAM[list_id]).IsUpdating</visible>
+				<control type="image">
+					<left>0</left><top>0</top><width>1810</width><height>460</height>
+					<texture colordiffuse="9903070C">colors/black.png</texture>
+				</control>
+				<control type="image">
+					<left>855</left><top>180</top><width>100</width><height>100</height>
+					<aspectratio>keep</aspectratio>
+					<texture colordiffuse="black">dialogs/extendedprogress/loading-back.png</texture>
+				</control>
+				<control type="image">
+					<left>855</left><top>180</top><width>100</width><height>100</height>
+					<aspectratio>keep</aspectratio>
+					<texture>dialogs/extendedprogress/loading.png</texture>
+					<animation effect="rotate" center="auto" start="360" end="0" time="1500" loop="true" condition="true">Conditional</animation>
+				</control>
+			</control>
+		</definition>
+	</include>
+
+	<include name="DejaVuPosterItem">
+		<param name="focused">false</param>
+		<definition>
+			<control type="image">
+				<left>10</left><top>12</top><width>164</width><height>246</height>
+				<texture>dv_card_shadow_v08.png</texture>
+			</control>
+			<control type="image">
+				<left>6</left><top>6</top><width>164</width><height>246</height>
+				<texture>$VAR[CardPosterVar]</texture>
+				<aspectratio>scale</aspectratio>
+			</control>
+			<control type="image">
+				<left>6</left><top>6</top><width>164</width><height>246</height>
+				<texture>dv_card_overlay_v08.png</texture>
+			</control>
+			<control type="image">
+				<left>6</left><top>6</top><width>164</width><height>246</height>
+				<texture>dv_card_border_v08.png</texture>
+				<bordersize>1</bordersize>
+			</control>
+			<control type="label">
+				<left>10</left><top>12</top><width>70</width><height>22</height>
+				<label>$INFO[ListItem.Property(WatchedLabel)]</label>
+				<font>font_flag</font>
+				<textcolor>FFFFFFFF</textcolor>
+				<visible>!String.IsEmpty(ListItem.Property(WatchedLabel))</visible>
+			</control>
+			<control type="label">
+				<left>6</left><top>256</top><width>164</width><height>36</height>
+				<label>$INFO[ListItem.Label]</label>
+				<font>font10</font>
+				<textcolor>FFFFFFFF</textcolor>
+				<align>center</align>
+				<wrapmultiline>true</wrapmultiline>
+			</control>
+		</definition>
+	</include>
+
+	<include name="DejaVuDetailsRail">
+		<param name="group_id">2010</param>
+		<param name="list_id">1310</param>
+		<param name="title"></param>
+		<param name="content"></param>
+		<param name="visible">true</param>
+		<param name="onup">1210</param>
+		<param name="ondown">1210</param>
+		<definition>
+			<control type="group" id="$PARAM[group_id]">
+				<visible>$PARAM[visible]</visible>
+				<enable>$PARAM[visible]</enable>
+				<width>1810</width>
+				<height>226</height>
+				<control type="image">
+					<left>0</left><top>6</top><width>4</width><height>22</height>
+					<texture>dv_accent_v08.png</texture>
+				</control>
+				<control type="label">
+					<left>16</left><top>0</top><width>1400</width><height>34</height>
+					<label>$PARAM[title]</label>
+					<font>font20_title</font>
+					<textcolor>FFFFFFFF</textcolor>
+				</control>
+				<control type="panel" id="$PARAM[list_id]">
+					<left>0</left>
+					<top>40</top>
+					<width>1810</width>
+					<height>180</height>
+					<orientation>horizontal</orientation>
+					<focusposition>0</focusposition>
+					<scrolltime>150</scrolltime>
+					<wraparound>false</wraparound>
+					<onup>$PARAM[onup]</onup>
+					<ondown>$PARAM[ondown]</ondown>
+					<onclick condition="!String.IsEmpty(ListItem.Property(list_id))">ClearProperty(dv.list.stack,Home)</onclick>
+					<onclick condition="!String.IsEmpty(ListItem.Property(list_id))">ClearProperty(dv.list.prev,Home)</onclick>
+					<onclick condition="!String.IsEmpty(ListItem.Property(list_id))">ClearProperty(dv.list.next,Home)</onclick>
+					<onclick condition="!String.IsEmpty(ListItem.Property(list_id))">SetProperty(dv.list.rev,$INFO[System.Time],Home)</onclick>
+					<onclick condition="!String.IsEmpty(ListItem.Property(list_id))">SetProperty(dv.list.title,$INFO[ListItem.Label],Home)</onclick>
+					<onclick condition="!String.IsEmpty(ListItem.Property(list_id))">SetProperty(dv.list.path,$INFO[ListItem.Property(FolderPath)],Home)</onclick>
+					<onclick condition="!String.IsEmpty(ListItem.Property(list_id))">ActivateWindow(1116)</onclick>
+					<onclick condition="String.IsEmpty(ListItem.Property(list_id))">RunPlugin(plugin://skin.dejavu.poc/?action=open_details)</onclick>
+					<content target="videos">$PARAM[content]</content>
+					<itemlayout width="308" height="180">
+						<include content="DejaVuCardItem">
+							<param name="focused" value="false" />
+							<param name="show_watchlist" value="false" />
+						</include>
+					</itemlayout>
+					<focusedlayout width="308" height="180">
+						<include content="DejaVuCardItem">
+							<param name="focused" value="true" />
+							<param name="show_watchlist" value="false" />
+						</include>
+						<include content="DejaVuCardFocusRing">
+							<param name="width" value="308" />
+							<param name="height" value="180" />
+						</include>
+					</focusedlayout>
+				</control>
+			</control>
+		</definition>
+	</include>
+
+	<include name="DejaVuDetailsListRail">
+		<param name="group_id">2020</param>
+		<param name="list_id">1320</param>
+		<param name="title">Dans les listes suivantes</param>
+		<param name="content"></param>
+		<param name="visible">true</param>
+		<param name="onup">1210</param>
+		<param name="ondown">1210</param>
+		<definition>
+			<control type="group" id="$PARAM[group_id]">
+				<visible>$PARAM[visible]</visible>
+				<enable>$PARAM[visible]</enable>
+				<width>1810</width>
+				<height>140</height>
+				<control type="image">
+					<left>0</left><top>6</top><width>4</width><height>22</height>
+					<texture>dv_accent_v08.png</texture>
+				</control>
+				<control type="label">
+					<left>16</left><top>0</top><width>1400</width><height>34</height>
+					<label>$PARAM[title]</label>
+					<font>font20_title</font>
+					<textcolor>FFFFFFFF</textcolor>
+				</control>
+				<control type="panel" id="$PARAM[list_id]">
+					<left>0</left>
+					<top>40</top>
+					<width>1810</width>
+					<height>96</height>
+					<orientation>horizontal</orientation>
+					<scrolltime>150</scrolltime>
+					<wraparound>false</wraparound>
+					<onup>$PARAM[onup]</onup>
+					<ondown>$PARAM[ondown]</ondown>
+					<onclick>ClearProperty(dv.list.stack,Home)</onclick>
+					<onclick>ClearProperty(dv.list.prev,Home)</onclick>
+					<onclick>ClearProperty(dv.list.next,Home)</onclick>
+					<onclick>SetProperty(dv.list.rev,$INFO[System.Time],Home)</onclick>
+					<onclick>SetProperty(dv.list.title,$INFO[ListItem.Label],Home)</onclick>
+					<onclick>SetProperty(dv.list.path,$INFO[ListItem.Property(FolderPath)],Home)</onclick>
+					<onclick>ActivateWindow(1116)</onclick>
+					<content target="videos">$PARAM[content]</content>
+					<itemlayout width="280" height="92">
+						<control type="image">
+							<left>8</left><top>8</top><width>256</width><height>76</height>
+							<texture>dv_button_v08.png</texture>
+						</control>
+						<control type="label">
+							<left>24</left><top>16</top><width>224</width><height>32</height>
+							<label>$INFO[ListItem.Label]</label>
+							<font>font13</font>
+							<textcolor>FFFFFFFF</textcolor>
+							<scroll>true</scroll>
+						</control>
+						<control type="label">
+							<left>24</left><top>48</top><width>224</width><height>24</height>
+							<label>$INFO[ListItem.Property(SubtitleLabel)]</label>
+							<font>font10</font>
+							<textcolor>FFB0BEC5</textcolor>
+						</control>
+					</itemlayout>
+					<focusedlayout width="280" height="92">
+						<control type="image">
+							<left>8</left><top>8</top><width>256</width><height>76</height>
+							<texture>dv_button_focus_v08.png</texture>
+						</control>
+						<control type="label">
+							<left>24</left><top>16</top><width>224</width><height>32</height>
+							<label>$INFO[ListItem.Label]</label>
+							<font>font13</font>
+							<textcolor>FFFFFFFF</textcolor>
+							<scroll>true</scroll>
+						</control>
+						<control type="label">
+							<left>24</left><top>48</top><width>224</width><height>24</height>
+							<label>$INFO[ListItem.Property(SubtitleLabel)]</label>
+							<font>font10</font>
+							<textcolor>FFE3E7EC</textcolor>
+						</control>
+					</focusedlayout>
+				</control>
+			</control>
+		</definition>
+	</include>
+</includes>

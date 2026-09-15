@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<window id="1112">
+  <defaultcontrol always="true">1201</defaultcontrol>
+  <backgroundcolor>FF03070C</backgroundcolor>
+  <onload condition="String.IsEmpty(Window(Home).Property(dv.details.season))">SetProperty(dv.details.season,1,Home)</onload>
+  <controls>
+    <control type="image">
+      <left>0</left><top>0</top><width>1920</width><height>1080</height>
+      <texture>colors/black.png</texture>
+      <colordiffuse>FF03070C</colordiffuse>
+    </control>
+    <control type="image">
+      <left>0</left><top>0</top><width>1920</width><height>420</height>
+      <texture>$INFO[Window(Home).Property(dv.details.fanart)]</texture>
+      <aspectratio>scale</aspectratio>
+    </control>
+    <control type="image">
+      <left>0</left><top>0</top><width>1920</width><height>420</height>
+      <texture>hero_gradient_v08.png</texture>
+    </control>
+
+    <include content="DejaVuHeader">
+      <param name="ondown" value="1201" />
+    </include>
+
+    <control type="label">
+      <left>72</left><top>80</top><width>90</width><height>28</height>
+      <label>SÉRIE</label><font>font_flag</font><textcolor>FFFFFFFF</textcolor>
+    </control>
+    <control type="label">
+      <left>72</left><top>112</top><width>1400</width><height>56</height>
+      <label>$INFO[Window(Home).Property(dv.details.title)]</label>
+      <font>font45_title</font><textcolor>FFFFFFFF</textcolor><scroll>true</scroll>
+    </control>
+    <control type="label">
+      <left>72</left><top>128</top><width>1400</width><height>24</height>
+      <label>$INFO[Window(Home).Property(dv.details.year)]$INFO[Window(Home).Property(dv.details.genre),  ·  ]$INFO[Window(Home).Property(dv.details.rating),  ·  ]$INFO[Window(Home).Property(dv.details.season),  ·  S]$INFO[Window(Home).Property(dv.details.episode),E]</label>
+      <font>font13</font><textcolor>FFE3E7EC</textcolor>
+    </control>
+    <control type="label">
+      <left>72</left><top>156</top><width>1400</width><height>24</height>
+      <label>$INFO[Window(Home).Property(dv.details.status)]</label>
+      <font>font11</font><textcolor>FFFFD54F</textcolor>
+    </control>
+    <control type="label">
+      <left>72</left><top>184</top><width>1400</width><height>48</height>
+      <label>$INFO[Window(Home).Property(dv.details.plot)]</label>
+      <font>font11</font><textcolor>FFE0E4EA</textcolor><wrapmultiline>true</wrapmultiline>
+    </control>
+    <control type="image">
+      <left>72</left><top>240</top><width>400</width><height>6</height>
+      <texture>dv_progress_bg_v08.png</texture>
+      <visible>!String.IsEmpty(Window(Home).Property(dv.details.has_progress))</visible>
+    </control>
+    <control type="image">
+      <left>72</left><top>240</top><width>$INFO[Window(Home).Property(dv.details.barwidth)]</width><height>6</height>
+      <texture>dv_progress_fg_v08.png</texture>
+      <visible>!String.IsEmpty(Window(Home).Property(dv.details.has_progress))</visible>
+    </control>
+
+    <control type="button" id="1201">
+      <left>72</left><top>260</top><width>280</width><height>56</height>
+      <label>$VAR[DetailsWatchLabelVar]</label>
+      <font>font11</font><align>center</align>
+      <texturefocus>dv_button_focus_v08.png</texturefocus>
+      <texturenofocus>dv_button_focus_v08.png</texturenofocus>
+      <onclick>RunPlugin($INFO[Window(Home).Property(dv.details.play_url)])</onclick>
+      <ondown>1210</ondown>
+    </control>
+
+    <include name="DejaVuWatchy">
+      <param name="left">72</param>
+      <param name="top">330</param>
+      <param name="ondown">61</param>
+    </include>
+
+    <control type="label">
+      <left>72</left><top>500</top><width>400</width><height>32</height>
+      <label>Saisons</label><font>font20_title</font><textcolor>FFFFFFFF</textcolor>
+    </control>
+    <control type="panel" id="61">
+      <left>50</left><top>536</top><width>1820</width><height>160</height>
+      <orientation>horizontal</orientation>
+      <onup>1210</onup><ondown>62</ondown>
+      <onfocus>SetProperty(dv.details.season,$INFO[ListItem.Season],Home)</onfocus>
+      <content target="videos">plugin://skin.dejavu.poc/?action=seasons&amp;tmdb_id=$INFO[Window(Home).Property(dv.details.tmdb_id)]</content>
+      <itemlayout width="200" height="150">
+        <control type="image"><left>8</left><top>4</top><width>180</width><height>110</height><texture>$INFO[ListItem.Art(poster)]</texture><aspectratio>scale</aspectratio></control>
+        <control type="label"><left>8</left><top>118</top><width>180</width><height>28</height><label>$INFO[ListItem.Label]</label><font>font10</font><textcolor>FFFFFFFF</textcolor></control>
+      </itemlayout>
+      <focusedlayout width="200" height="150">
+        <control type="image"><left>6</left><top>2</top><width>184</width><height>114</height><texture>dv_focus_v08.png</texture></control>
+        <control type="image"><left>8</left><top>4</top><width>180</width><height>110</height><texture>$INFO[ListItem.Art(poster)]</texture><aspectratio>scale</aspectratio></control>
+        <control type="label"><left>8</left><top>118</top><width>180</width><height>28</height><label>$INFO[ListItem.Label]</label><font>font10</font><textcolor>FFFFFFFF</textcolor></control>
+      </focusedlayout>
+    </control>
+
+    <control type="label">
+      <left>72</left><top>704</top><width>600</width><height>32</height>
+      <label>Épisodes</label><font>font20_title</font><textcolor>FFFFFFFF</textcolor>
+    </control>
+    <control type="panel" id="62">
+      <left>50</left><top>740</top><width>1820</width><height>300</height>
+      <orientation>horizontal</orientation>
+      <onup>61</onup>
+      <onclick>RunPlugin($INFO[ListItem.FileNameAndPath])</onclick>
+      <content target="videos">plugin://skin.dejavu.poc/?action=episodes&amp;tmdb_id=$INFO[Window(Home).Property(dv.details.tmdb_id)]&amp;season=$INFO[Window(Home).Property(dv.details.season)]</content>
+      <itemlayout width="308" height="200">
+        <control type="image"><left>10</left><top>8</top><width>280</width><height>158</height><texture>$INFO[ListItem.Art(thumb)]</texture><aspectratio>scale</aspectratio></control>
+        <control type="label"><left>16</left><top>12</top><width>70</width><height>22</height><label>$INFO[ListItem.Property(WatchedLabel)]</label><font>font_flag</font><textcolor>FFFFFFFF</textcolor></control>
+        <control type="label"><left>16</left><top>168</top><width>260</width><height>24</height><label>E$INFO[ListItem.Episode]  $INFO[ListItem.Label]</label><font>font10</font><textcolor>FFFFFFFF</textcolor></control>
+      </itemlayout>
+      <focusedlayout width="308" height="200">
+        <control type="image"><left>8</left><top>6</top><width>284</width><height>162</height><texture>dv_focus_v08.png</texture></control>
+        <control type="image"><left>10</left><top>8</top><width>280</width><height>158</height><texture>$INFO[ListItem.Art(thumb)]</texture><aspectratio>scale</aspectratio></control>
+        <control type="label"><left>16</left><top>12</top><width>70</width><height>22</height><label>$INFO[ListItem.Property(WatchedLabel)]</label><font>font_flag</font><textcolor>FFFFFFFF</textcolor></control>
+        <control type="label"><left>16</left><top>168</top><width>260</width><height>24</height><label>E$INFO[ListItem.Episode]  $INFO[ListItem.Label]</label><font>font10</font><textcolor>FFFFFFFF</textcolor></control>
+      </focusedlayout>
+    </control>
+
+    <control type="list" id="50">
+      <left>-80</left><top>0</top><width>40</width><height>40</height>
+      <content target="videos">plugin://skin.dejavu.poc/?action=details_item&amp;type=tv&amp;tmdb_id=$INFO[Window(Home).Property(dv.details.tmdb_id)]&amp;show_tmdb_id=$INFO[Window(Home).Property(dv.details.show_tmdb_id)]&amp;season=$INFO[Window(Home).Property(dv.details.season)]&amp;episode=$INFO[Window(Home).Property(dv.details.episode)]&amp;title=$INFO[Window(Home).Property(dv.details.title)]</content>
+    </control>
+  </controls>
+</window>

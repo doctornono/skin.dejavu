@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<fontset id="DejaVu" unicodefont="true">
+  <font>
+    <name>font12</name><filename>DejaVuSans.ttf</filename><size>18</size>
+  </font>
+  <font>
+    <name>font13</name><filename>DejaVuSans.ttf</filename><size>26</size>
+  </font>
+  <font>
+    <name>font16</name><filename>DejaVuSans.ttf</filename><size>32</size>
+  </font>
+  <font>
+    <name>font20</name><filename>DejaVuSans-Bold.ttf</filename><size>38</size>
+  </font>
+  <font>
+    <name>font30</name><filename>DejaVuSans-Bold.ttf</filename><size>52</size>
+  </font>
+  <font>
+    <name>font40</name><filename>DejaVuSans-Bold.ttf</filename><size>64</size>
+  </font>
+</fontset>
