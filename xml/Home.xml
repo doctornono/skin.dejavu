@@ -952,6 +952,11 @@
 				</control>
 			</control>
 
+			<control type="group" id="23000">
+				<visible>String.IsEqual(Container(9000).ListItem.Property(id),lists)</visible>
+				<include content="Visible_Right_Delayed"><param name="id" value="lists"/></include>
+			</control>
+
 			<control type="group">
 				<depth>DepthContentPanel</depth>
 				<include>OpenClose_Left</include>
@@ -1042,6 +1047,13 @@
 							<property name="menu_id">$NUMBER[22000]</property>
 							<thumb>icons/sidemenu/videos.png</thumb>
 							<property name="id">home</property>
+						</item>
+						<item>
+							<label>Listes</label>
+							<onclick>ActivateWindow(11100)</onclick>
+							<property name="menu_id">$NUMBER[23000]</property>
+							<thumb>icons/sidemenu/favourites.png</thumb>
+							<property name="id">lists</property>
 						</item>
 						<item>
 							<label>$LOCALIZE[342]</label>
