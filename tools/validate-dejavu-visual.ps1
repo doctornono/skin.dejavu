@@ -6,19 +6,19 @@ $repo = Split-Path -Parent $PSScriptRoot
 
 Write-Host "Validation visuelle initiale skin.dejaVu" -ForegroundColor Cyan
 
-$addon = Join-Path $repo "addon.xml"
-$home = Join-Path $repo "xml\Home.xml"
-$colors = Join-Path $repo "colors\defaults.xml"
+$addonFile = Join-Path $repo "addon.xml"
+$homeFile = Join-Path $repo "xml\Home.xml"
+$colorsFile = Join-Path $repo "colors\defaults.xml"
 
-foreach ($path in @($addon,$home,$colors)) {
+foreach ($path in @($addonFile,$homeFile,$colorsFile)) {
     if (-not (Test-Path $path -PathType Leaf)) {
         throw "Fichier absent: $path"
     }
 }
 
-[xml]$addonXml = Get-Content $addon
-[xml]$homeXml = Get-Content $home
-[xml]$colorsXml = Get-Content $colors
+[xml]$addonXml = Get-Content $addonFile
+[xml]$homeXml = Get-Content $homeFile
+[xml]$colorsXml = Get-Content $colorsFile
 
 if ($addonXml.addon.id -ne "skin.dejavu") { throw "addon.xml invalide: id" }
 if ($addonXml.addon.name -ne "dejaVu") { throw "addon.xml invalide: name" }
@@ -35,7 +35,7 @@ foreach ($name in $requiredColors.Keys) {
     if ($node.'#text' -ne $requiredColors[$name]) { throw "Couleur inattendue: $name = $($node.'#text')" }
 }
 
-$homeText = Get-Content $home -Raw
+$homeText = Get-Content $homeFile -Raw
 if ($homeText -notmatch "Votre espace de lecture") {
     throw "Chrome dejaVu absent de Home.xml"
 }
