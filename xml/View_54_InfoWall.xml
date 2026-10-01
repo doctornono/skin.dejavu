@@ -235,7 +235,7 @@
 		<param name="artwork">$INFO[ListItem.Art(poster)]</param>
 		<definition>
 			<control type="group">
-				<visible>String.IsEmpty($PARAM[artwork])</visible>
+				<visible>$PARAM[artwork_empty]</visible>
 				<control type="image">
 					<left>15</left>
 					<top>-10</top>
@@ -278,7 +278,7 @@
 				</control>
 			</control>
 			<control type="group">
-				<visible>!String.IsEmpty($PARAM[artwork])</visible>
+				<visible>$PARAM[artwork_available]</visible>
 				<control type="image">
 					<left>11</left>
 					<top>-14</top>
