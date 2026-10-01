@@ -863,58 +863,25 @@
 					<include>WidgetGroupListCommon</include>
 					<pagecontrol>22002</pagecontrol>
 					<include content="WidgetListCategories">
-						<param name="content_path" value="" />
-						<param name="widget_header" value="$LOCALIZE[31148]" />
+						<param name="content_path" value="plugin://script.dejavu/?action=home_actions" />
+						<param name="widget_header" value="Tests" />
 						<param name="widget_target" value="videos" />
 						<param name="list_id" value="23050" />
 						<param name="icon_height" value="70" />
-						<content>
-							<item>
-								<label>Rafraîchir la skin</label>
-								<icon>icons/settings.png</icon>
-								<onclick>ReloadSkin</onclick>
-							</item>
-							<item>
-								<label>Test bouton 2</label>
-								<icon>icons/search.png</icon>
-								<onclick>Notification(dejaVu,Test bouton 2)</onclick>
-							</item>
-							<item>
-								<label>Test bouton 3</label>
-								<icon>icons/favourites.png</icon>
-								<onclick>Notification(dejaVu,Test bouton 3)</onclick>
-							</item>
-						</content>
 					</include>
 					<include content="WidgetListPoster">
-						<param name="content_path" value="" />
+						<param name="content_path" value="plugin://script.dejavu/?action=home_test_movies" />
 						<param name="widget_header" value="Films d'exemple" />
 						<param name="widget_target" value="videos" />
 						<param name="list_id" value="24050" />
-						<param name="artwork" value="$INFO[ListItem.Icon]" />
-						<param name="artwork_available" value="!String.IsEmpty(ListItem.Icon)" />
-						<param name="artwork_empty" value="String.IsEmpty(ListItem.Icon)" />
 						<param name="browse_mode" value="never" />
-						<content>
-							<item>
-								<label>Inception</label>
-								<label2>2010</label2>
-								<icon>https://image.tmdb.org/t/p/w500/9gk7adHYeDvHkCSEqAvQNLV5Uge.jpg</icon>
-								<onclick>noop</onclick>
-							</item>
-							<item>
-								<label>The Matrix</label>
-								<label2>1999</label2>
-								<icon>https://image.tmdb.org/t/p/w500/f89U3ADr1oiB1s9GkdPOEpXUk5H.jpg</icon>
-								<onclick>noop</onclick>
-							</item>
-							<item>
-								<label>Interstellar</label>
-								<label2>2014</label2>
-								<icon>https://image.tmdb.org/t/p/w500/gEU2QniE6E77NI6lCU6MxlNBvIx.jpg</icon>
-								<onclick>noop</onclick>
-							</item>
-						</content>
+					</include>
+					<include content="WidgetListPoster">
+						<param name="content_path" value="plugin://script.dejavu/?action=favorites_widget" />
+						<param name="widget_header" value="Mes favoris récents" />
+						<param name="widget_target" value="videos" />
+						<param name="list_id" value="25050" />
+						<param name="browse_mode" value="never" />
 					</include>
 					<include content="WidgetScrollbar" condition="Skin.HasSetting(touchmode)">
 						<param name="scrollbar_id" value="22002"/>
