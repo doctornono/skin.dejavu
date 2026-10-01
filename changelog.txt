@@ -1,3 +1,6 @@
+v0.5.17 (2026-10-01):
+- Fix: show only movies in the DejaVu custom-list home rail.
+
 0.2.6
 - Dimensionnement du DejaVuRail aligné sur le modèle de widget rail Estuary.
 
