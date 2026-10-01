@@ -1,3 +1,6 @@
+v0.5.18 (2026-10-01):
+- Fix: use a unique control ID for the custom-list movie rail.
+
 v0.5.17 (2026-10-01):
 - Fix: show only movies in the DejaVu custom-list home rail.
 
