@@ -51,7 +51,7 @@
 		<param name="left">0</param>
 		<param name="top">0</param>
 		<param name="width">1180</param>
-		<param name="height">400</param>
+		<param name="height">500</param>
 		<param name="header">dejaVu Rail</param>
 		<param name="content_path">videodb://movies/titles/</param>
 		<definition>
