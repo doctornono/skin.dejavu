@@ -47,3 +47,17 @@ Variables optionnelles : `KODI_JSONRPC_URL`, `KODI_USER`, `KODI_PASSWORD`.
 - PowerShell 5.1+ ou PowerShell 7
 - dépôt cloné localement
 - junction Kodi pointant vers le dépôt pour le développement recommandé
+
+## Règle d'implémentation — Estuary d'abord
+
+skin.dejaVu est construit **au-dessus du runtime et des composants Estuary Omega**.
+
+Avant de créer un composant ou un comportement propre à dejaVu, vérifier d'abord si Estuary fournit déjà une primitive adaptée (include, bouton, liste, panel, layout, navigation/focus, dialogue, carte ou autre composant réutilisable).
+
+Ordre obligatoire :
+1. réutiliser le composant Estuary existant ;
+2. le paramétrer avec le contenu/comportement dejaVu ;
+3. n'ajouter une abstraction dejaVu que si aucun composant Estuary approprié n'existe ;
+4. affiner ensuite l'aspect visuel et le contenu sans remplacer inutilement le comportement Kodi validé.
+
+La priorité est donc **comportement Estuary → contenu dejaVu → aspect visuel dejaVu**.
