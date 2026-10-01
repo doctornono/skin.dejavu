@@ -891,6 +891,7 @@
 						<param name="widget_header" value="Films d'exemple" />
 						<param name="widget_target" value="videos" />
 						<param name="list_id" value="24050" />
+						<param name="artwork" value="$INFO[ListItem.Icon]" />
 						<param name="browse_mode" value="never" />
 						<content>
 							<item>
