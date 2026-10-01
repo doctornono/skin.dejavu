@@ -141,7 +141,7 @@
 							<param name="onclick_action" value="$VAR[TVShowOnClickActionVar]"/>
 						</include>
 						<include content="WidgetListEpisodes" condition="Library.HasContent(tvshows)">
-							<param name="content_path" value="special://skin/playlists/recent_unwatched_episodes.xsp"/>
+							<param name="content_path" value="videodb://tvshows/titles/"/>
 							<param name="widget_header" value="$LOCALIZE[20387]"/>
 							<param name="widget_target" value="videos"/>
 							<param name="list_id" value="6200"/>
@@ -155,7 +155,7 @@
 							<param name="onclick_action" value="$VAR[TVShowOnClickActionVar]"/>
 						</include>
 						<include content="WidgetListCategories" condition="Library.HasContent(tvshows)">
-							<param name="content_path" value="videodb://tvshows/genres/"/>
+							<param name="content_path" value="sources://video/"/>
 							<param name="widget_header" value="$LOCALIZE[135]"/>
 							<param name="widget_target" value="videos"/>
 							<param name="list_id" value="6400"/>
@@ -400,11 +400,11 @@
 							<param name="list_id" value="12900"/>
 						</include>
 						<include content="WidgetListPVR" condition="System.HasPVRAddon">
-							<param name="content_path" value="pvr://channels/tv/*?view=lastplayed"/>
+							<param name="content_path" value="addons://sources/video/"/>
 							<param name="sortby" value="lastplayed"/>
 							<param name="sortorder" value="descending"/>
 							<param name="widget_header" value="$LOCALIZE[31016]"/>
-							<param name="widget_target" value="tvchannels"/>
+							<param name="widget_target" value="videos"/>
 							<param name="item_limit" value="15"/>
 							<param name="list_id" value="12200"/>
 							<param name="info_update" value="5000"/>
