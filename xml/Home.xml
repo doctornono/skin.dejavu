@@ -897,6 +897,13 @@
 						<param name="list_id" value="32050" />
 						<param name="browse_mode" value="never" />
 					</include>
+					<include content="WidgetListPoster">
+						<param name="content_path" value="plugin://plugin.video.alkoflix/?mode=alldebrid.ad_links&amp;name=Liens&amp;iconImage=special%3A%2F%2Fhome%2Faddons%2Fplugin.video.alkoflix%2Fresources%2Fskins%2FDefault%2Fmedia%2Fdownload.png" />
+						<param name="widget_header" value="Liens" />
+						<param name="widget_target" value="videos" />
+						<param name="list_id" value="33050" />
+						<param name="browse_mode" value="never" />
+					</include>
 
 					<include content="WidgetListPoster">
 						<param name="content_path" value="videodb://movies/titles/" />
