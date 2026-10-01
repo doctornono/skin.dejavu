@@ -19,10 +19,21 @@
       <font>font20_title</font><textcolor>FFFFFFFF</textcolor>
       <onclick>noop</onclick>
     </control>
+    <control type="button" id="1002">
+      <left>640</left><top>300</top><width>520</width><height>72</height>
+      <label>Rafraichir la skin</label>
+      <font>font20_title</font><textcolor>FFFFFFFF</textcolor>
+      <onclick>ReloadSkin()</onclick>
+    </control>
     <control type="label">
       <left>80</left><top>420</top><width>1500</width><height>100</height>
       <label>Fondations chargées : addon.xml, Font.xml, Includes.xml et ScreenProfile.</label>
       <font>font13</font><textcolor>FFB8B8B8</textcolor><wrapmultiline>true</wrapmultiline>
+    </control>
+    <control type="label">
+      <left>80</left><top>540</top><width>1600</width><height>50</height>
+      <label>$LOCALIZE[14001] : $INFO[System.ScreenWidth] x $INFO[System.ScreenHeight]</label>
+      <font>font12</font><textcolor>FFB8B8B8</textcolor>
     </control>
     <control type="label">
       <left>80</left><bottom>70</bottom><width>1600</width><height>40</height>
