@@ -28,9 +28,6 @@
 	<include name="WidgetListPoster">
 		<param name="onclick_condition">false</param>
 		<param name="browse_mode">auto</param>
-		<param name="artwork">$INFO[ListItem.Art(poster)]</param>
-		<param name="artwork_available">!String.IsEmpty(ListItem.Art(poster))</param>
-		<param name="artwork_empty">String.IsEmpty(ListItem.Art(poster))</param>
 		<definition>
 			<include content="CategoryLabel">
 				<param name="label">$PARAM[widget_header]</param>
@@ -56,9 +53,6 @@
 						<top>10</top>
 						<include content="InfoWallMovieLayout">
 							<param name="focused" value="false" />
-							<param name="artwork" value="$PARAM[artwork]" />
-							<param name="artwork_available" value="$PARAM[artwork_available]" />
-							<param name="artwork_empty" value="$PARAM[artwork_empty]" />
 						</include>
 					</control>
 				</itemlayout>
@@ -75,13 +69,9 @@
 						</animation>
 						<include content="InfoWallMovieLayout">
 							<param name="focused" value="true" />
-							<param name="artwork" value="$PARAM[artwork]" />
-							<param name="artwork_available" value="$PARAM[artwork_available]" />
-							<param name="artwork_empty" value="$PARAM[artwork_empty]" />
 						</include>
 					</control>
 				</focusedlayout>
-				<nested />
 				<content sortby="$PARAM[sortby]" sortorder="$PARAM[sortorder]" target="$PARAM[widget_target]" limit="15" browse="$PARAM[browse_mode]">$PARAM[content_path]</content>
 			</control>
 		</definition>
@@ -390,7 +380,6 @@
 				</focusedlayout>
 				<include condition="$PARAM[additional_movie_items]" content="MovieSubmenuItems" />
 				<include condition="$PARAM[additional_tvshow_items]" content="TVShowSubmenuItems" />
-				<nested />
 				<content target="$PARAM[widget_target]" limit="$PARAM[item_limit]" browse="$PARAM[browse_mode]">$PARAM[content_path]</content>
 			</control>
 		</definition>
