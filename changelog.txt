@@ -1,3 +1,8 @@
+0.2.5
+- Navigation de la page de test alignée sur le focus spatial natif de Kodi/Estuary.
+- DejaVuButton n'impose plus de direction de navigation par défaut.
+- DejaVuRail réutilise CategoryLabel et WidgetListCommon d'Estuary.
+
 [B]0.8.5[/B]
 • Updated language files from Transifex
 
