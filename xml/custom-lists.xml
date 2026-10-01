@@ -14,21 +14,34 @@
 				<orientation>vertical</orientation>
 				<include>WidgetGroupListCommon</include>
 				<pagecontrol>11190</pagecontrol>
-				<include content="WidgetListCategories">
-					<param name="content_path" value="plugin://script.dejavu?action=lists" />
-					<param name="widget_header" value="Mes listes" />
-					<param name="widget_target" value="videos" />
-					<param name="list_id" value="11150" />
-					<param name="icon_height" value="120" />
-					<param name="browse_mode" value="never" />
-				</include>
-				<include content="WidgetListPoster">
-					<param name="content_path" value="plugin://script.dejavu?action=list_items&amp;list_id=cmsyph5aj000p04jmpdgz5ort&amp;page=1" />
-					<param name="widget_header" value="Liste de test" />
-					<param name="widget_target" value="videos" />
-					<param name="list_id" value="11160" />
-					<param name="browse_mode" value="never" />
-				</include>
+				<control type="panel" id="11150">
+					<left>0</left>
+					<top>110</top>
+					<right>0</right>
+					<height>290</height>
+					<include content="WidgetListCommon">
+						<param name="list_id" value="11150" />
+					</include>
+					<itemlayout width="310" height="340">
+						<control type="label"><left>55</left><top>80</top><width>900</width><height>90</height><label>$INFO[ListItem.Label]</label></control>
+					</itemlayout>
+					<focusedlayout width="310" height="340">
+						<control type="label"><left>55</left><top>80</top><width>900</width><height>90</height><label>$INFO[ListItem.Label]</label></control>
+					</focusedlayout>
+					<content>plugin://script.dejavu?action=lists</content>
+				</control>
+				<control type="panel" id="11160">
+					<left>0</left>
+					<top>450</top>
+					<right>0</right>
+					<height>518</height>
+					<include content="WidgetListCommon">
+						<param name="list_id" value="11160" />
+					</include>
+					<itemlayout width="310" height="486"><include content="InfoWallMovieLayout"><param name="focused" value="false" /></include></itemlayout>
+					<focusedlayout width="310" height="486"><include content="InfoWallMovieLayout"><param name="focused" value="true" /></include></focusedlayout>
+					<content>plugin://script.dejavu?action=list_items&amp;list_id=cmsyph5aj000p04jmpdgz5ort&amp;page=1</content>
+				</control>
 			</control>
 		</control>
 		<include>BottomBar</include>
