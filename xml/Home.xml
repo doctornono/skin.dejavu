@@ -30,13 +30,21 @@
       <onclick>ReloadSkin()</onclick>
     </control>
     <control type="button" id="1003">
-      <left>80</left><top>400</top><width>1080</width><height>72</height>
+      <left>80</left><top>400</top><width>520</width><height>72</height>
       <label>Retourner sur la skin Estuary</label>
       <font>font20_title</font><textcolor>FFFFFFFF</textcolor>
       <focusedcolor>FF7B2820</focusedcolor>
       <onleft>1003</onleft><onright>1003</onright><onup>1002</onup><ondown>1003</ondown>
       <visible>System.HasAddon(script.dejavu)</visible>
       <onclick>RunScript(script.dejavu,action=switch_skin,skin=skin.estuary)</onclick>
+    </control>
+    <control type="button" id="1004">
+      <left>640</left><top>400</top><width>520</width><height>72</height>
+      <label>Quitter Kodi</label>
+      <font>font20_title</font><textcolor>FFFFFFFF</textcolor>
+      <focusedcolor>FF7B2820</focusedcolor>
+      <onleft>1003</onleft><onright>1003</onright><onup>1002</onup><ondown>1004</ondown>
+      <onclick>Quit()</onclick>
     </control>
 
     <control type="label">
