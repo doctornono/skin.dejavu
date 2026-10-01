@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<window>
+  <defaultcontrol>3</defaultcontrol>
+  <controls>
+    <control type="group">
+      <centerleft>50%</centerleft>
+      <centertop>50%</centertop>
+      <width>1000</width>
+      <height>600</height>
+      <control type="label" id="1">
+        <left>40</left><top>30</top><width>920</width><height>60</height>
+        <font>font20_title</font><label>$LOCALIZE[13406]</label>
+        <textcolor>FFFFFFFF</textcolor>
+      </control>
+      <control type="list" id="3">
+        <left>40</left><top>110</top><width>920</width><height>400</height>
+        <orientation>vertical</orientation>
+        <itemlayout height="56">
+          <control type="label">
+            <left>20</left><top>0</top><width>880</width><height>56</height>
+            <font>font12</font><textcolor>FFB8B8B8</textcolor>
+          </control>
+        </itemlayout>
+        <focusedlayout height="56">
+          <control type="label">
+            <left>20</left><top>0</top><width>880</width><height>56</height>
+            <font>font12</font><textcolor>FFFFFFFF</textcolor>
+          </control>
+        </focusedlayout>
+      </control>
+      <control type="button" id="4">
+        <left>40</left><top>530</top><width>220</width><height>60</height>
+        <label>10752</label><font>font12</font><textcolor>FFFFFFFF</textcolor>
+        <focusedcolor>FF7B2820</focusedcolor><onup>3</onup><ondown>3</ondown>
+      </control>
+    </control>
+  </controls>
+</window>
