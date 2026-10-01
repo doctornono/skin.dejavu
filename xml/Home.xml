@@ -854,6 +854,9 @@
 			</control>
 			<control type="group" id="22000">
 				<visible>String.IsEqual(Container(9000).ListItem.Property(id),home)</visible>
+				<include content="Visible_Right_Delayed">
+					<param name="id" value="home"/>
+				</include>
 				<left>462</left>
 				<include>OpenClose_Right</include>
 				<control type="grouplist" id="22001">
@@ -861,7 +864,7 @@
 					<pagecontrol>22002</pagecontrol>
 					<include content="WidgetListCategories">
 						<param name="content_path" value="" />
-						<param name="widget_header" value="Tests" />
+						<param name="widget_header" value="$LOCALIZE[31148]" />
 						<param name="widget_target" value="videos" />
 						<param name="list_id" value="23050" />
 						<content>
@@ -908,6 +911,9 @@
 								<onclick>noop</onclick>
 							</item>
 						</content>
+					</include>
+					<include content="WidgetScrollbar" condition="Skin.HasSetting(touchmode)">
+						<param name="scrollbar_id" value="22002"/>
 					</include>
 				</control>
 			</control>
