@@ -1165,37 +1165,98 @@
 		<control type="group" id="22000">
 			<visible>Skin.HasSetting(dejavu_test_home)</visible>
 			<left>500</left>
-			<top>230</top>
-			<width>1250</width>
-			<height>720</height>
+			<top>210</top>
+			<width>1300</width>
+			<height>800</height>
 			<control type="label">
-				<left>0</left><top>0</top><width>1100</width><height>70</height>
+				<left>0</left><top>0</top><width>1150</width><height>55</height>
 				<font>font37</font><label>Accueil de test dejaVu</label>
 				<textcolor>FFFFFFFF</textcolor>
 			</control>
 			<control type="label">
-				<left>0</left><top>85</top><width>1100</width><height>90</height>
+				<left>0</left><top>65</top><width>1150</width><height>70</height>
 				<font>font14</font>
-				<label>Zone de validation fonctionnelle : navigation, focus, boutons et futurs composants. L'habillage visuel sera traité plus tard.</label>
+				<label>Vertical slice 1 : Button + MediaCard + Rail + focus + actions.</label>
 				<textcolor>grey</textcolor>
 			</control>
-			<control type="button" id="22001">
-				<left>0</left><top>205</top><width>500</width><height>75</height>
-				<label>Test du focus clavier / télécommande</label>
-				<onup>22002</onup><ondown>22002</ondown>
-				<onleft>9000</onleft><onright>22002</onright>
-				<onclick>Notification(dejaVu, Focus du bouton fonctionnel,3000)</onclick>
+
+			<include content="DejaVuButton">
+				<param name="control_id" value="23001" />
+				<param name="label" value="Test du Button" />
+				<param name="onclick" value="Notification(dejaVu, Button fonctionnel,3000)" />
+				<param name="width" value="500" />
+				<param name="height" value="70" />
+			</include>
+			<control type="button" id="23001_nav">
+				<include>HiddenObject</include>
+				<onfocus>SetFocus(23001)</onfocus>
 			</control>
-			<control type="button" id="22002">
-				<left>0</left><top>300</top><width>500</width><height>75</height>
-				<label>Test d'action</label>
-				<onup>22001</onup><ondown>22001</ondown>
-				<onleft>9000</onleft><onright>22001</onright>
-				<onclick>Notification(dejaVu, Action du bouton fonctionnelle,3000)</onclick>
+
+			<control type="button" id="23002">
+				<left>0</left><top>250</top><width>500</width><height>70</height>
+				<label>Test navigation vers le Rail</label>
+				<onup>23001</onup>
+				<ondown>23150</ondown>
+				<onleft>9000</onleft>
+				<onright>23150</onright>
+				<onclick>SetFocus(23150)</onclick>
 			</control>
+
+			<control type="button" id="23001">
+				<left>0</left><top>160</top><width>500</width><height>70</height>
+				<label>Test du Button</label>
+				<onup>23002</onup>
+				<ondown>23002</ondown>
+				<onleft>9000</onleft>
+				<onright>23002</onright>
+				<onclick>Notification(dejaVu, Button fonctionnel,3000)</onclick>
+			</control>
+
 			<control type="label">
-				<left>0</left><top>410</top><width>1100</width><height>50</height>
-				<font>font14</font><label>Étape 1 : vérifier l'accès à cette page et le comportement du focus.</label>
+				<left>540</left><top>145</top><width>650</width><height>45</height>
+				<font>font20_title</font><label>Test Rail / MediaCard</label>
+			</control>
+			<control type="panel" id="23150">
+				<left>540</left><top>200</top><width>720</width><height>380</height>
+				<orientation>horizontal</orientation>
+				<focusposition>0</focusposition>
+				<onup>23002</onup>
+				<onleft>23002</onleft>
+				<itemlayout width="240" height="330">
+					<include content="DejaVuMediaCard">
+						<param name="width" value="240" />
+						<param name="height" value="330" />
+						<param name="focused" value="false" />
+					</include>
+				</itemlayout>
+				<focusedlayout width="240" height="330">
+					<include content="DejaVuMediaCard">
+						<param name="width" value="240" />
+						<param name="height" value="330" />
+						<param name="focused" value="true" />
+					</include>
+				</focusedlayout>
+				<content>
+					<item>
+						<label>Démo Film 01</label>
+						<thumb>DefaultVideo.png</thumb>
+					</item>
+					<item>
+						<label>Démo Film 02</label>
+						<thumb>DefaultVideo.png</thumb>
+					</item>
+					<item>
+						<label>Démo Film 03</label>
+						<thumb>DefaultVideo.png</thumb>
+					</item>
+				</content>
+				<onclick>Notification(dejaVu,$INFO[ListItem.Label],3000)</onclick>
+			</control>
+
+			<control type="label">
+				<left>540</left><top>610</top><width>720</width><height>55</height>
+				<font>font14</font>
+				<label>Flèches gauche/droite : cartes • haut : retour au bouton • Entrée/clic : action.</label>
 				<textcolor>grey</textcolor>
 			</control>
 		</control>
