@@ -890,6 +890,48 @@
 						<param name="list_id" value="26050" />
 						<param name="browse_mode" value="never" />
 					</include>
+
+					<include content="WidgetListPoster">
+						<param name="content_path" value="videodb://movies/titles/" />
+						<param name="widget_header" value="Test WidgetListPoster" />
+						<param name="widget_target" value="videos" />
+						<param name="list_id" value="27050" />
+						<param name="item_limit" value="3" />
+						<param name="browse_mode" value="never" />
+					</include>
+					<include content="WidgetListEpisodes">
+						<param name="content_path" value="special://skin/playlists/recent_unwatched_episodes.xsp" />
+						<param name="widget_header" value="Test WidgetListEpisodes" />
+						<param name="widget_target" value="videos" />
+						<param name="list_id" value="28050" />
+						<param name="widget_limit" value="3" />
+						<param name="browse_mode" value="never" />
+					</include>
+					<include content="WidgetListSquare">
+						<param name="content_path" value="addons://sources/video/" />
+						<param name="widget_header" value="Test WidgetListSquare" />
+						<param name="widget_target" value="videos" />
+						<param name="list_id" value="29050" />
+						<param name="widget_limit" value="3" />
+						<param name="browse_mode" value="never" />
+						<param name="fallback_icon" value="DefaultAddon.png" />
+					</include>
+					<include content="WidgetListCategories">
+						<param name="content_path" value="videodb://tvshows/genres/" />
+						<param name="widget_header" value="Test WidgetListCategories" />
+						<param name="widget_target" value="videos" />
+						<param name="list_id" value="30050" />
+						<param name="item_limit" value="3" />
+						<param name="icon_height" value="70" />
+					</include>
+					<include content="WidgetListPVR" condition="System.HasPVRAddon">
+						<param name="content_path" value="pvr://channels/tv/*?view=lastplayed" />
+						<param name="widget_header" value="Test WidgetListPVR" />
+						<param name="widget_target" value="tvchannels" />
+						<param name="list_id" value="31050" />
+						<param name="item_limit" value="3" />
+						<param name="browse_mode" value="never" />
+					</include>
 					<include content="WidgetScrollbar" condition="Skin.HasSetting(touchmode)">
 						<param name="scrollbar_id" value="22002"/>
 					</include>
