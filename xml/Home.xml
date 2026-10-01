@@ -940,7 +940,7 @@
 							<label>Accueil dejaVu - tests</label>
 							<onclick>Skin.SetBool(dejavu_test_home)</onclick>
 							<onclick>SetFocus(22001)</onclick>
-							<property name="menu_id">$NUMBER[22000]</property>
+							<property name="menu_id">$NUMBER[22001]</property>
 							<thumb>icons/sidemenu/videos.png</thumb>
 							<property name="id">dejavu_test_home</property>
 							<visible>!Skin.HasSetting(dejavu_test_home)</visible>
@@ -949,7 +949,7 @@
 							<label>Retour accueil Kodi</label>
 							<onclick>Skin.Reset(dejavu_test_home)</onclick>
 							<onclick>SetFocus(9000)</onclick>
-							<property name="menu_id">$NUMBER[23000]</property>
+							<property name="menu_id">$NUMBER[9000]</property>
 							<thumb>icons/sidemenu/videos.png</thumb>
 							<property name="id">dejavu_return_home</property>
 							<visible>Skin.HasSetting(dejavu_test_home)</visible>
