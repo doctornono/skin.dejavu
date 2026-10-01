@@ -35,7 +35,7 @@
       <focusedcolor>FF7B2820</focusedcolor>
       <onleft>1001</onleft>
       <onright>1001</onright>
-      <onup>1003</onup>
+      <onup>1002</onup>
       <ondown>1003</ondown>
       <onclick>ReloadSkin()</onclick>
     </control>
@@ -50,7 +50,7 @@
       <onright>1003</onright>
       <onup>1002</onup>
       <ondown>1003</ondown>
-      <onclick>Skin.SetString(skin.dejavu.previous,skin.estuary)</onclick>
+      <onclick>LoadSkin(skin.estuary)</onclick>
     </control>
 
     <control type="label">
