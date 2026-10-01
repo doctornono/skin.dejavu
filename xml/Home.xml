@@ -878,7 +878,7 @@
 					</include>
 					<include content="WidgetListPoster">
 						<param name="content_path" value="plugin://script.dejavu/?action=favorites_widget" />
-						<param name="widget_header" value="Mes favoris récents" />
+						<param name="widget_header" value="Mes 5 derniers favoris" />
 						<param name="widget_target" value="videos" />
 						<param name="list_id" value="25050" />
 						<param name="browse_mode" value="never" />
