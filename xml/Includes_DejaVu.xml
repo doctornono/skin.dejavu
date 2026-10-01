@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<includes>
+	<!-- dejaVu functional component primitives.
+	     Visual identity is intentionally delegated to Kodi/Estuary for now. -->
+
+	<include name="DejaVuButton">
+		<param name="control_id">23001</param>
+		<param name="width">500</param>
+		<param name="height">75</param>
+		<param name="label">dejaVu button</param>
+		<param name="onclick">Notification(dejaVu, Button action,3000)</param>
+		<definition>
+			<control type="button" id="$PARAM[control_id]">
+				<width>$PARAM[width]</width>
+				<height>$PARAM[height]</height>
+				<label>$PARAM[label]</label>
+				<onclick>$PARAM[onclick]</onclick>
+			</control>
+		</definition>
+	</include>
+
+	<include name="DejaVuMediaCard">
+		<param name="focused">false</param>
+		<param name="width">240</param>
+		<param name="height">330</param>
+		<definition>
+			<control type="group">
+				<width>$PARAM[width]</width>
+				<height>$PARAM[height]</height>
+				<animation type="Focus">
+					<effect type="zoom" start="100" end="106" time="120" center="$PARAM[width],$PARAM[height] / 2" />
+				</animation>
+				<control type="image">
+					<left>10</left>
+					<top>10</top>
+					<width>220</width>
+					<height>250</height>
+					<aspectratio>keep</aspectratio>
+					<texture>$INFO[ListItem.Art(thumb)]</texture>
+					<visible>!String.IsEmpty(ListItem.Art(thumb))</visible>
+				</control>
+				<control type="image">
+					<left>10</left>
+					<top>10</top>
+					<width>220</width>
+					<height>250</height>
+					<texture>DefaultVideo.png</texture>
+					<visible>String.IsEmpty(ListItem.Art(thumb))</visible>
+				</control>
+				<control type="label">
+					<left>10</left>
+					<top>270</top>
+					<width>220</width>
+					<height>55</height>
+					<font>font14</font>
+					<align>left</align>
+					<aligny>center</aligny>
+					<label>$INFO[ListItem.Label]</label>
+					<textcolor>FFFFFFFF</textcolor>
+					<scroll>$PARAM[focused]</scroll>
+				</control>
+			</control>
+		</definition>
+	</include>
+
+	<include name="DejaVuRail">
+		<param name="control_id">23100</param>
+		<param name="left">0</param>
+		<param name="top">0</param>
+		<param name="width">1180</param>
+		<param name="height">400</param>
+		<param name="header">dejaVu Rail</param>
+		<param name="content_path">videodb://movies/titles/</param>
+		<definition>
+			<control type="group">
+				<left>$PARAM[left]</left>
+				<top>$PARAM[top]</top>
+				<width>$PARAM[width]</width>
+				<height>$PARAM[height]</height>
+				<control type="label">
+					<left>0</left>
+					<top>0</top>
+					<width>$PARAM[width]</width>
+					<height>45</height>
+					<font>font20_title</font>
+					<label>$PARAM[header]</label>
+				</control>
+				<control type="panel" id="$PARAM[control_id]">
+					<left>0</left>
+					<top>55</top>
+					<width>$PARAM[width]</width>
+					<height>330</height>
+					<orientation>horizontal</orientation>
+					<focusposition>0</focusposition>
+					<movement>4</movement>
+					<itemlayout width="240" height="330">
+						<include content="DejaVuMediaCard">
+							<param name="width" value="240" />
+							<param name="height" value="330" />
+							<param name="focused" value="false" />
+						</include>
+					</itemlayout>
+					<focusedlayout width="240" height="330">
+						<include content="DejaVuMediaCard">
+							<param name="width" value="240" />
+							<param name="height" value="330" />
+							<param name="focused" value="true" />
+						</include>
+					</focusedlayout>
+					<content target="videos" browse="never">$PARAM[content_path]</content>
+				</control>
+			</control>
+		</definition>
+	</include>
+</includes>
