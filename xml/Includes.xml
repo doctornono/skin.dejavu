@@ -1,5 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <includes>
+	<include file="../resources/styles/tokens.xml" />
+	<include file="../resources/styles/screen_profiles.xml" />
 	<include file="Defaults.xml" />
 	<include file="Includes_Home.xml" />
 	<include file="Includes_DejaVu_Cards.xml" />
