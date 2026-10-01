@@ -3,19 +3,58 @@
   <defaultcontrol>10</defaultcontrol>
   <controls>
     <control type="group">
-      <centerleft>50%</centerleft><centertop>50%</centertop><width>900</width><height>360</height>
+      <centerleft>50%</centerleft>
+      <centertop>50%</centertop>
+      <width>900</width>
+      <height>360</height>
+
       <control type="label" id="1">
-        <left>40</left><top>40</top><width>820</width><height>70</height>
-        <font>font20_title</font><label>$INFO[Control.GetLabel(9)]</label>
+        <left>40</left>
+        <top>40</top>
+        <width>820</width>
+        <height>70</height>
+        <font>font20_title</font>
+        <label>$INFO[Control.GetLabel(9)]</label>
       </control>
+
       <control type="textbox" id="9">
-        <left>40</left><top>120</top><width>820</width><height>100</height><font>font12</font>
+        <left>40</left>
+        <top>120</top>
+        <width>820</width>
+        <height>100</height>
+        <font>font12</font>
       </control>
-      <control type="button" id="10">
-        <left>40</left><top>250</top><width>250</width><height>60</height><label>10752</label>
-      </control>
-      <control type="button" id="11">
-        <left>320</left><top>250</top><width>250</width><height>60</height><label>10753</label>
+
+      <control type="grouplist" id="9000">
+        <left>40</left>
+        <top>250</top>
+        <width>820</width>
+        <height>60</height>
+        <orientation>horizontal</orientation>
+        <align>center</align>
+        <itemgap>20</itemgap>
+        <onup>10</onup>
+        <ondown>10</ondown>
+        <onleft>11</onleft>
+        <onright>11</onright>
+
+        <control type="button" id="10">
+          <width>250</width>
+          <height>60</height>
+          <label>10752</label>
+          <font>font12</font>
+          <focusedcolor>FFFFFFFF</focusedcolor>
+          <textcolor>FFAAAAAA</textcolor>
+        </control>
+
+        <control type="button" id="11">
+          <width>250</width>
+          <height>60</height>
+          <label>10753</label>
+          <font>font12</font>
+          <focusedcolor>FFFFFFFF</focusedcolor>
+          <textcolor>FFAAAAAA</textcolor>
+        </control>
       </control>
     </control>
   </controls>
