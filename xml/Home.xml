@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <window>
-  <defaultcontrol>1001</defaultcontrol>
+  <defaultcontrol always="true">1001</defaultcontrol>
   <backgroundcolor>FF101010</backgroundcolor>
   <controls>
     <control type="label">
@@ -13,18 +13,33 @@
       <label>Socle Kodi 21 — Lot 1</label>
       <font>font20_title</font><textcolor>FFB8B8B8</textcolor>
     </control>
+
     <control type="button" id="1001">
       <left>80</left><top>300</top><width>520</width><height>72</height>
       <label>Skin dejaVu actif</label>
-      <font>font20_title</font><textcolor>FFFFFFFF</textcolor>
+      <font>font20_title</font>
+      <textcolor>FFFFFFFF</textcolor>
+      <focusedcolor>FF7B2820</focusedcolor>
+      <onleft>1002</onleft>
+      <onright>1002</onright>
+      <onup>1001</onup>
+      <ondown>1001</ondown>
       <onclick>noop</onclick>
     </control>
+
     <control type="button" id="1002">
       <left>640</left><top>300</top><width>520</width><height>72</height>
       <label>Rafraichir la skin</label>
-      <font>font20_title</font><textcolor>FFFFFFFF</textcolor>
+      <font>font20_title</font>
+      <textcolor>FFFFFFFF</textcolor>
+      <focusedcolor>FF7B2820</focusedcolor>
+      <onleft>1001</onleft>
+      <onright>1001</onright>
+      <onup>1002</onup>
+      <ondown>1002</ondown>
       <onclick>ReloadSkin()</onclick>
     </control>
+
     <control type="label">
       <left>80</left><top>420</top><width>1500</width><height>100</height>
       <label>Fondations chargées : addon.xml, Font.xml, Includes.xml et ScreenProfile.</label>
