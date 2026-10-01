@@ -884,7 +884,7 @@
 						<param name="browse_mode" value="never" />
 					</include>
 					<include content="WidgetListPoster">
-						<param name="content_path" value="plugin://script.dejavu?action=favorites&amp;type=tv&amp;page=1" />
+						<param name="content_path" value="plugin://script.dejavu?action=favorites_tv_widget" />
 						<param name="widget_header" value="Mes 5 dernières séries favorites" />
 						<param name="widget_target" value="videos" />
 						<param name="list_id" value="26050" />
