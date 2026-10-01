@@ -863,21 +863,21 @@
 					<include>WidgetGroupListCommon</include>
 					<pagecontrol>22002</pagecontrol>
 					<include content="WidgetListCategories">
-						<param name="content_path" value="plugin://script.dejavu?action=home_actions" />
+						<param name="content_path" value="plugin://script.dejavu/home_actions" />
 						<param name="widget_header" value="Tests" />
 						<param name="widget_target" value="videos" />
 						<param name="list_id" value="23050" />
 						<param name="icon_height" value="70" />
 					</include>
 					<include content="WidgetListPoster">
-						<param name="content_path" value="plugin://script.dejavu?action=home_test_movies" />
+						<param name="content_path" value="plugin://script.dejavu/home_test_movies" />
 						<param name="widget_header" value="Films d'exemple" />
 						<param name="widget_target" value="videos" />
 						<param name="list_id" value="24050" />
 						<param name="browse_mode" value="never" />
 					</include>
 					<include content="WidgetListPoster">
-						<param name="content_path" value="plugin://script.dejavu?action=favorites_widget" />
+						<param name="content_path" value="plugin://script.dejavu/favorites_widget" />
 						<param name="widget_header" value="Mes 5 derniers favoris" />
 						<param name="widget_target" value="videos" />
 						<param name="list_id" value="25050" />
