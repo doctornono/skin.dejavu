@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<window>
+  <defaultcontrol>1</defaultcontrol>
+  <controls>
+    <control type="label" id="1">
+      <left>80</left><top>80</top><width>1760</width><height>60</height>
+      <font>font25_title</font><label>$INFO[Control.GetLabel(2)]</label>
+    </control>
+    <control type="button" id="2">
+      <left>80</left><top>160</top><width>500</width><height>70</height>
+      <label>5</label><onclick>Action(Back)</onclick>
+    </control>
+  </controls>
+</window>
