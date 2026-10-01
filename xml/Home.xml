@@ -891,7 +891,7 @@
 						<param name="browse_mode" value="never" />
 					</include>
 					<include content="WidgetListPoster">
-						<param name="content_path" value="plugin://plugin.video.alkoflix/?mode=build_movie_list&amp;action=alkopaste_catalogue&amp;catalogue_section=films&amp;catalogue_sort=date&amp;fav_type=movie&amp;name=Films+du+moment&amp;iconImage=announce.png" />
+						<param name="content_path" value="plugin://script.dejavu/?action=enrich_source&amp;source=plugin%3A%2F%2Fplugin.video.alkoflix%2F%3Fmode%3Dbuild_movie_list%26action%3Dalkopaste_catalogue%26catalogue_section%3Dfilms%26catalogue_sort%3Ddate%26fav_type%3Dmovie%26name%3DFilms%2Bdu%2Bmoment%26iconImage%3Dannounce.png" />
 						<param name="widget_header" value="Films du moment" />
 						<param name="widget_target" value="videos" />
 						<param name="list_id" value="32050" />
