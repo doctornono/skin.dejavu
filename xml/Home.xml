@@ -20,10 +20,8 @@
       <font>font20_title</font>
       <textcolor>FFFFFFFF</textcolor>
       <focusedcolor>FF7B2820</focusedcolor>
-      <onleft>1002</onleft>
-      <onright>1002</onright>
-      <onup>1001</onup>
-      <ondown>1001</ondown>
+      <onleft>1002</onleft><onright>1002</onright>
+      <onup>1001</onup><ondown>1001</ondown>
       <onclick>noop</onclick>
     </control>
 
@@ -33,10 +31,8 @@
       <font>font20_title</font>
       <textcolor>FFFFFFFF</textcolor>
       <focusedcolor>FF7B2820</focusedcolor>
-      <onleft>1001</onleft>
-      <onright>1001</onright>
-      <onup>1002</onup>
-      <ondown>1003</ondown>
+      <onleft>1001</onleft><onright>1001</onright>
+      <onup>1002</onup><ondown>1003</ondown>
       <onclick>ReloadSkin()</onclick>
     </control>
 
@@ -46,11 +42,9 @@
       <font>font20_title</font>
       <textcolor>FFFFFFFF</textcolor>
       <focusedcolor>FF7B2820</focusedcolor>
-      <onleft>1003</onleft>
-      <onright>1003</onright>
-      <onup>1002</onup>
-      <ondown>1003</ondown>
-      <onclick>LoadSkin(skin.estuary)</onclick>
+      <onleft>1003</onleft><onright>1003</onright>
+      <onup>1002</onup><ondown>1003</ondown>
+      <onclick>ActivateWindow(settings,lookandfeel)</onclick>
     </control>
 
     <control type="label">
@@ -59,7 +53,7 @@
       <font>font13</font><textcolor>FFB8B8B8</textcolor><wrapmultiline>true</wrapmultiline>
     </control>
     <control type="label">
-      <left>80</left><top>640</top><width>1600</width><height>50</height>
+      <left>80</left><top>640</left><width>1600</width><height>50</height>
       <label>$LOCALIZE[14001] : $INFO[System.ScreenWidth] x $INFO[System.ScreenHeight]</label>
       <font>font12</font><textcolor>FFB8B8B8</textcolor>
     </control>
