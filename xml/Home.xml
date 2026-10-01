@@ -939,8 +939,7 @@
 						<item>
 							<label>Accueil dejaVu - tests</label>
 							<onclick>Skin.SetBool(dejavu_test_home)</onclick>
-							<onclick>SetFocus(22001)</onclick>
-							<property name="menu_id">$NUMBER[22001]</property>
+							<property name="menu_id">$NUMBER[23003]</property>
 							<thumb>icons/sidemenu/videos.png</thumb>
 							<property name="id">dejavu_test_home</property>
 							<visible>!Skin.HasSetting(dejavu_test_home)</visible>
@@ -1184,10 +1183,6 @@
 				<left>0</left><top>150</top><width>520</width><height>260</height>
 				<orientation>vertical</orientation>
 				<itemgap>10</itemgap>
-				<onleft>9000</onleft>
-				<onright>23150</onright>
-				<onup>9000</onup>
-				<ondown>23150</ondown>
 				<include content="DejaVuButton">
 					<param name="control_id" value="23003" />
 					<param name="width" value="500" />
