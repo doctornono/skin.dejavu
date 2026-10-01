@@ -861,7 +861,7 @@
 					<pagecontrol>22002</pagecontrol>
 					<include content="WidgetListCategories">
 						<param name="content_path" value="" />
-						<param name="widget_header" value="Catégories" />
+						<param name="widget_header" value="Tests" />
 						<param name="widget_target" value="videos" />
 						<param name="list_id" value="23050" />
 						<content>
@@ -871,6 +871,44 @@
 								<onclick>ReloadSkin</onclick>
 							</item>
 						</content>
+					</include>
+					<include content="WidgetListPoster">
+						<param name="content_path" value="" />
+						<param name="widget_header" value="Films d'exemple" />
+						<param name="widget_target" value="videos" />
+						<param name="list_id" value="24050" />
+						<param name="browse_mode" value="never" />
+						<content>
+							<item>
+								<label>Inception</label>
+								<label2>2010</label2>
+								<thumb>https://image.tmdb.org/t/p/w500/9gk7adHYeDvHkCSEqAvQNLV5Uge.jpg</thumb>
+								<onclick>noop</onclick>
+							</item>
+							<item>
+								<label>The Matrix</label>
+								<label2>1999</label2>
+								<thumb>https://image.tmdb.org/t/p/w500/f89U3ADr1oiB1s9GkdPOEpXUk5H.jpg</thumb>
+								<onclick>noop</onclick>
+							</item>
+							<item>
+								<label>Interstellar</label>
+								<label2>2014</label2>
+								<thumb>https://image.tmdb.org/t/p/w500/gEU2QniE6E77NI6lCU6MxlNBvIx.jpg</thumb>
+								<onclick>noop</onclick>
+							</item>
+						</content>
+					</include>
+					<include content="ImageWidget">
+						<param name="text_label" value="Boutons de test" />
+						<param name="button_label" value="Test bouton 2" />
+						<param name="button_onclick" value="Notification(dejaVu,Test bouton 2)" />
+						<param name="button2_label" value="Test bouton 3" />
+						<param name="button2_onclick" value="Notification(dejaVu,Test bouton 3)" />
+						<param name="button_id" value="25000" />
+						<param name="visible" value="true" />
+						<param name="visible_1" value="true" />
+						<param name="visible_2" value="true" />
 					</include>
 				</control>
 			</control>
