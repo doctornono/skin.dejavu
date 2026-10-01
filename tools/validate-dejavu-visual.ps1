@@ -23,7 +23,7 @@ foreach ($path in @($addonFile,$homeFile,$colorsFile,$componentsFile)) {
 
 if ($addonXml.addon.id -ne "skin.dejavu") { throw "addon.xml invalide: id" }
 if ($addonXml.addon.name -ne "dejaVu") { throw "addon.xml invalide: name" }
-if ($addonXml.addon.version -ne "0.2.2") { throw "addon.xml invalide: version attendue 0.2.2" }
+if ($addonXml.addon.version -ne "0.2.3") { throw "addon.xml invalide: version attendue 0.2.2" }
 
 $requiredColors = @{
     "button_focus" = "FF7B2820"
@@ -59,11 +59,12 @@ foreach ($component in @("DejaVuButton","DejaVuMediaCard","DejaVuRail")) {
 }
 if ($homeText -notmatch "DejaVuMediaCard|id=`"23150`"") { throw "Vertical slice Home absent" }
 
-Write-Host "[OK] addon.xml / version 0.2.2"
+Write-Host "[OK] addon.xml / version 0.2.3"
 Write-Host "[OK] palette burgundy/dark"
 Write-Host "[OK] menu gauche vers la page de test"
 Write-Host "[OK] page de test et contrôles de focus/actions"
-Write-Host "[OK] Button / MediaCard / Rail"
+Write-Host "[OK] Button / MediaCard / Rail
+Write-Host "[OK] bouton Rafraîchir la skin""
 Write-Host "[OK] habillage graphique provisoire retiré"
 Write-Host ""
 Write-Host "Validation de la page de test : OK" -ForegroundColor Green
