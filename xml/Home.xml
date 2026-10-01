@@ -952,11 +952,34 @@
 				</control>
 			</control>
 
-			<control type="button" id="23000">
-				<include>HiddenObject</include>
-				<onfocus>ActivateWindow(11100)</onfocus>
-				<onclick>ActivateWindow(11101)</onclick>
+			<control type="group" id="23000">
 				<visible>String.IsEqual(Container(9000).ListItem.Property(id),lists)</visible>
+				<include content="Visible_Right_Delayed">
+					<param name="id" value="lists"/>
+				</include>
+				<left>462</left>
+				<include>OpenClose_Right</include>
+				<control type="grouplist" id="23001">
+					<include>WidgetGroupListCommon</include>
+					<pagecontrol>23002</pagecontrol>
+					<include content="WidgetListPoster">
+						<param name="content_path" value="plugin://script.dejavu?action=home_test_movies" />
+						<param name="widget_header" value="Films d'exemple" />
+						<param name="widget_target" value="videos" />
+						<param name="list_id" value="23050" />
+						<param name="browse_mode" value="never" />
+					</include>
+					<include content="WidgetListPoster">
+						<param name="content_path" value="plugin://script.dejavu?action=lists" />
+						<param name="widget_header" value="Mes listes" />
+						<param name="widget_target" value="videos" />
+						<param name="list_id" value="24050" />
+						<param name="browse_mode" value="never" />
+					</include>
+					<include content="WidgetScrollbar" condition="Skin.HasSetting(touchmode)">
+						<param name="scrollbar_id" value="23002"/>
+					</include>
+				</control>
 			</control>
 
 			<control type="group">
