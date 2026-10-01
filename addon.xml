@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<addon id="skin.dejavu" version="0.2.1" name="dejaVu" provider-name="dejaVu contributors; based on Estuary Omega">
+<addon id="skin.dejavu" version="0.2.2" name="dejaVu" provider-name="dejaVu contributors; based on Estuary Omega">
 	<requires>
 		<import addon="xbmc.gui" version="5.17.0"/>
 	</requires>
