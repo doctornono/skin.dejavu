@@ -892,24 +892,26 @@
 						<param name="widget_target" value="videos" />
 						<param name="list_id" value="24050" />
 						<param name="artwork" value="$INFO[ListItem.Icon]" />
+						<param name="artwork_available" value="!String.IsEmpty(ListItem.Icon)" />
+						<param name="artwork_empty" value="String.IsEmpty(ListItem.Icon)" />
 						<param name="browse_mode" value="never" />
 						<content>
 							<item>
 								<label>Inception</label>
 								<label2>2010</label2>
-								<art><poster>https://image.tmdb.org/t/p/w500/9gk7adHYeDvHkCSEqAvQNLV5Uge.jpg</poster></art>
+								<icon>https://image.tmdb.org/t/p/w500/9gk7adHYeDvHkCSEqAvQNLV5Uge.jpg</icon>
 								<onclick>noop</onclick>
 							</item>
 							<item>
 								<label>The Matrix</label>
 								<label2>1999</label2>
-								<art><poster>https://image.tmdb.org/t/p/w500/f89U3ADr1oiB1s9GkdPOEpXUk5H.jpg</poster></art>
+								<icon>https://image.tmdb.org/t/p/w500/f89U3ADr1oiB1s9GkdPOEpXUk5H.jpg</icon>
 								<onclick>noop</onclick>
 							</item>
 							<item>
 								<label>Interstellar</label>
 								<label2>2014</label2>
-								<art><poster>https://image.tmdb.org/t/p/w500/gEU2QniE6E77NI6lCU6MxlNBvIx.jpg</poster></art>
+								<icon>https://image.tmdb.org/t/p/w500/gEU2QniE6E77NI6lCU6MxlNBvIx.jpg</icon>
 								<onclick>noop</onclick>
 							</item>
 						</content>
