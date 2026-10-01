@@ -16,58 +16,36 @@
 		<param name="onleft">9000</param>
 		<param name="onright">noop</param>
 		<definition>
-			<control type="button" id="$PARAM[control_id]">
-				<left>$PARAM[left]</left>
-				<top>$PARAM[top]</top>
-				<width>$PARAM[width]</width>
-				<height>$PARAM[height]</height>
-				<label>$PARAM[label]</label>
-				<onclick>$PARAM[onclick]</onclick>
-				<onup>$PARAM[onup]</onup>
-				<ondown>$PARAM[ondown]</ondown>
-				<onleft>$PARAM[onleft]</onleft>
-				<onright>$PARAM[onright]</onright>
-			</control>
+			<include content="DefaultDialogButton">
+				<param name="id" value="$PARAM[control_id]" />
+				<param name="left" value="$PARAM[left]" />
+				<param name="top" value="$PARAM[top]" />
+				<param name="width" value="$PARAM[width]" />
+				<param name="height" value="$PARAM[height]" />
+				<param name="label" value="$PARAM[label]" />
+				<param name="onclick" value="$PARAM[onclick]" />
+				<param name="onup" value="$PARAM[onup]" />
+				<param name="ondown" value="$PARAM[ondown]" />
+				<param name="onleft" value="$PARAM[onleft]" />
+				<param name="onright" value="$PARAM[onright]" />
+			</include>
 		</definition>
 	</include>
 
 	<include name="DejaVuMediaCard">
 		<param name="focused">false</param>
-		<param name="width">240</param>
-		<param name="height">330</param>
+		<param name="width">310</param>
+		<param name="height">486</param>
 		<definition>
 			<control type="group">
+				<left>68</left>
+				<top>10</top>
 				<width>$PARAM[width]</width>
 				<height>$PARAM[height]</height>
-				<control type="image">
-					<left>10</left>
-					<top>10</top>
-					<width>220</width>
-					<height>250</height>
-					<aspectratio>keep</aspectratio>
-					<texture>$INFO[ListItem.Art(thumb)]</texture>
-					<visible>!String.IsEmpty(ListItem.Art(thumb))</visible>
-				</control>
-				<control type="image">
-					<left>10</left>
-					<top>10</top>
-					<width>220</width>
-					<height>250</height>
-					<texture>DefaultVideo.png</texture>
-					<visible>String.IsEmpty(ListItem.Art(thumb))</visible>
-				</control>
-				<control type="label">
-					<left>10</left>
-					<top>270</top>
-					<width>220</width>
-					<height>55</height>
-					<font>font14</font>
-					<align>left</align>
-					<aligny>center</aligny>
-					<label>$INFO[ListItem.Label]</label>
-					<textcolor>FFFFFFFF</textcolor>
-					<scroll>$PARAM[focused]</scroll>
-				</control>
+				<depth>DepthContentPopout</depth>
+				<include content="InfoWallMovieLayout">
+					<param name="focused" value="$PARAM[focused]" />
+				</include>
 			</control>
 		</definition>
 	</include>
