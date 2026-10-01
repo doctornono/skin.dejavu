@@ -309,7 +309,7 @@
 					<width>250</width>
 					<height>50</height>
 					<texture colordiffuse="CCFFFFFF">overlays/overlayfade.png</texture>
-					<visible>!String.IsEmpty($PARAM[artwork])</visible>
+					<visible>$PARAM[artwork_available]</visible>
 				</control>
 				<control type="image">
 					<left>40</left>
