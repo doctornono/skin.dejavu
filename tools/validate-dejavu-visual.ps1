@@ -23,7 +23,7 @@ foreach ($path in @($addonFile,$homeFile,$colorsFile,$componentsFile)) {
 
 if ($addonXml.addon.id -ne "skin.dejavu") { throw "addon.xml invalide: id" }
 if ($addonXml.addon.name -ne "dejaVu") { throw "addon.xml invalide: name" }
-if ($addonXml.addon.version -ne "0.2.5") { throw "addon.xml invalide: version attendue 0.2.5" }
+if ($addonXml.addon.version -ne "0.2.6") { throw "addon.xml invalide: version attendue 0.2.6" }
 
 $requiredColors = @{
     "button_focus" = "FF7B2820"
