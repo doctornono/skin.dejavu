@@ -232,7 +232,7 @@
 	</include>
 	<include name="InfoWallMovieLayout">
 		<param name="focused">false</param>
-		<param name="artwork">$PARAM[artwork]</param>
+		<param name="artwork">$INFO[ListItem.Art(poster)]</param>
 		<definition>
 			<control type="group">
 				<visible>String.IsEmpty($PARAM[artwork])</visible>
