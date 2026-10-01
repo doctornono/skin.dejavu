@@ -30,38 +30,12 @@
 			<imagepath background="true" colordiffuse="bg_overlay">$VAR[HomeFanartVar]</imagepath>
 			<visible>!Player.HasMedia</visible>
 		</control>
-		<!-- dejaVu visual layer: non-interactive branding, preserved Kodi navigation -->
-		<control type="image">
-			<left>55</left>
-			<top>48</top>
-			<width>150</width>
-			<height>4</height>
-			<texture colordiffuse="button_focus">colors/white.png</texture>
-		</control>
-		<control type="label">
-			<left>55</left>
-			<top>62</top>
-			<width>420</width>
-			<height>72</height>
-			<font>font45_title</font>
-			<label>dejaVu</label>
-			<textcolor>FFFFFFFF</textcolor>
-			<shadowcolor>text_shadow</shadowcolor>
-		</control>
-		<control type="label">
-			<left>55</left>
-			<top>132</top>
-			<width>420</width>
-			<height>38</height>
-			<font>font14</font>
-			<label>Votre espace de lecture</label>
-			<textcolor>FFA7A7A7</textcolor>
-		</control>
 
 
 		<control type="group">
 			<animation effect="fade" start="100" end="0" time="200" tween="sine" condition="$EXP[infodialog_active]">Conditional</animation>
 			<control type="group" id="2000">
+				<visible>!Skin.HasSetting(dejavu_test_home)</visible>
 				<left>462</left>
 				<animation type="Conditional" condition="Control.IsVisible(20000)" reversible="false">
 					<effect type="slide" end="0,20" time="60" tween="sine" />
@@ -963,6 +937,25 @@
 					</itemlayout>
 					<content>
 						<item>
+							<label>Accueil dejaVu - tests</label>
+							<onclick>Skin.SetBool(dejavu_test_home)</onclick>
+							<onclick>SetFocus(22001)</onclick>
+							<property name="menu_id">$NUMBER[22000]</property>
+							<thumb>icons/sidemenu/videos.png</thumb>
+							<property name="id">dejavu_test_home</property>
+							<visible>!Skin.HasSetting(dejavu_test_home)</visible>
+						</item>
+						<item>
+							<label>Retour accueil Kodi</label>
+							<onclick>Skin.Reset(dejavu_test_home)</onclick>
+							<onclick>SetFocus(9000)</onclick>
+							<property name="menu_id">$NUMBER[23000]</property>
+							<thumb>icons/sidemenu/videos.png</thumb>
+							<property name="id">dejavu_return_home</property>
+							<visible>Skin.HasSetting(dejavu_test_home)</visible>
+						</item>
+
+						<item>
 							<label>$LOCALIZE[342]</label>
 							<onclick condition="Library.HasContent(movies) + Skin.HasSetting(home_no_categories_widget) + !System.GetBool(myvideos.flatten)">ActivateWindow(Videos,videodb://movies/,return)</onclick>
 							<onclick condition="Library.HasContent(movies) + Skin.HasSetting(home_no_categories_widget) + System.GetBool(myvideos.flatten)">ActivateWindow(Videos,videodb://movies/titles/,return)</onclick>
@@ -1168,18 +1161,43 @@
 				</control>
 			</control>
 		</control>
-		<!-- dejaVu navigation chrome: foreground layer -->
-		<control type="group" id="29000">
-			<left>55</left><top>178</top><width>1750</width><height>46</height>
-			<control type="image"><left>0</left><top>42</top><width>118</width><height>3</height><texture colordiffuse="button_focus">colors/white.png</texture></control>
-			<control type="label"><left>0</left><top>0</top><width>118</width><height>40</height><align>left</align><aligny>center</aligny><font>font14</font><label>ACCUEIL</label><textcolor>FFFFFFFF</textcolor></control>
-			<control type="label"><left>155</left><top>0</top><width>150</width><height>40</height><align>left</align><aligny>center</aligny><font>font14</font><label>CONTINUER</label><textcolor>grey</textcolor></control>
-			<control type="label"><left>335</left><top>0</top><width>145</width><height>40</height><align>left</align><aligny>center</aligny><font>font14</font><label>WATCHLIST</label><textcolor>grey</textcolor></control>
-			<control type="label"><left>510</left><top>0</top><width>125</width><height>40</height><align>left</align><aligny>center</aligny><font>font14</font><label>FAVORIS</label><textcolor>grey</textcolor></control>
-			<control type="label"><left>665</left><top>0</top><width>120</width><height>40</height><align>left</align><aligny>center</aligny><font>font14</font><label>LISTES</label><textcolor>grey</textcolor></control>
-			<control type="label"><left>815</left><top>0</top><width>140</width><height>40</height><align>left</align><aligny>center</aligny><font>font14</font><label>CHANNELS</label><textcolor>grey</textcolor></control>
-			<control type="label"><left>985</left><top>0</top><width>145</width><height>40</height><align>left</align><aligny>center</aligny><font>font14</font><label>RECHERCHE</label><textcolor>grey</textcolor></control>
-		</control>
 
+		<control type="group" id="22000">
+			<visible>Skin.HasSetting(dejavu_test_home)</visible>
+			<left>500</left>
+			<top>230</top>
+			<width>1250</width>
+			<height>720</height>
+			<control type="label">
+				<left>0</left><top>0</top><width>1100</width><height>70</height>
+				<font>font37</font><label>Accueil de test dejaVu</label>
+				<textcolor>FFFFFFFF</textcolor>
+			</control>
+			<control type="label">
+				<left>0</left><top>85</top><width>1100</width><height>90</height>
+				<font>font14</font>
+				<label>Zone de validation fonctionnelle : navigation, focus, boutons et futurs composants. L'habillage visuel sera traité plus tard.</label>
+				<textcolor>grey</textcolor>
+			</control>
+			<control type="button" id="22001">
+				<left>0</left><top>205</top><width>500</width><height>75</height>
+				<label>Test du focus clavier / télécommande</label>
+				<onup>22002</onup><ondown>22002</ondown>
+				<onleft>9000</onleft><onright>22002</onright>
+				<onclick>Notification(dejaVu, Focus du bouton fonctionnel,3000)</onclick>
+			</control>
+			<control type="button" id="22002">
+				<left>0</left><top>300</top><width>500</width><height>75</height>
+				<label>Test d'action</label>
+				<onup>22001</onup><ondown>22001</ondown>
+				<onleft>9000</onleft><onright>22001</onright>
+				<onclick>Notification(dejaVu, Action du bouton fonctionnelle,3000)</onclick>
+			</control>
+			<control type="label">
+				<left>0</left><top>410</top><width>1100</width><height>50</height>
+				<font>font14</font><label>Étape 1 : vérifier l'accès à cette page et le comportement du focus.</label>
+				<textcolor>grey</textcolor>
+			</control>
+		</control>
 	</controls>
 </window>
