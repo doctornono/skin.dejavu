@@ -852,6 +852,26 @@
 					</include>
 				</control>
 			</control>
+			<control type="group" id="22000">
+				<visible>Skin.HasSetting(dejavu_test_home)</visible>
+				<control type="grouplist" id="22001">
+					<include>WidgetGroupListCommon</include>
+					<pagecontrol>22002</pagecontrol>
+					<include content="WidgetListCategories">
+						<param name="content_path" value="" />
+						<param name="widget_header" value="Catégories" />
+						<param name="widget_target" value="videos" />
+						<param name="list_id" value="23050" />
+						<content>
+							<item>
+								<label>Rafraîchir la skin</label>
+								<icon>icons/settings.png</icon>
+								<onclick>ReloadSkin</onclick>
+							</item>
+						</content>
+					</include>
+				</control>
+			</control>
 			<control type="group">
 				<depth>DepthContentPanel</depth>
 				<include>OpenClose_Left</include>
@@ -939,7 +959,7 @@
 						<item>
 							<label>Accueil dejaVu - tests</label>
 							<onclick>Skin.SetBool(dejavu_test_home)</onclick>
-							<property name="menu_id">$NUMBER[23003]</property>
+							<property name="menu_id">$NUMBER[23050]</property>
 							<thumb>icons/sidemenu/videos.png</thumb>
 							<property name="id">dejavu_test_home</property>
 							<visible>!Skin.HasSetting(dejavu_test_home)</visible>
@@ -1161,87 +1181,5 @@
 			</control>
 		</control>
 
-		<control type="group" id="22000">
-			<visible>Skin.HasSetting(dejavu_test_home)</visible>
-			<left>500</left>
-			<top>210</top>
-			<width>1300</width>
-			<height>800</height>
-			<control type="label">
-				<left>0</left><top>0</top><width>1150</width><height>55</height>
-				<font>font37</font><label>Accueil de test dejaVu</label>
-				<textcolor>FFFFFFFF</textcolor>
-			</control>
-			<control type="label">
-				<left>0</left><top>65</top><width>1150</width><height>70</height>
-				<font>font14</font>
-				<label>Vertical slice 1 : composants Estuary + focus + actions.</label>
-				<textcolor>grey</textcolor>
-			</control>
-
-			<control type="grouplist" id="23010">
-				<left>0</left><top>150</top><width>520</width><height>260</height>
-				<orientation>vertical</orientation>
-				<itemgap>10</itemgap>
-				<include content="DejaVuButton">
-					<param name="control_id" value="23003" />
-					<param name="width" value="500" />
-					<param name="height" value="70" />
-					<param name="label" value="Rafraîchir la skin" />
-					<param name="onclick" value="ReloadSkin" />
-				</include>
-				<include content="DejaVuButton">
-					<param name="control_id" value="23001" />
-					<param name="width" value="500" />
-					<param name="height" value="70" />
-					<param name="label" value="Test du Button" />
-					<param name="onclick" value="Notification(dejaVu, Button fonctionnel,3000)" />
-				</include>
-				<include content="DejaVuButton">
-					<param name="control_id" value="23002" />
-					<param name="width" value="500" />
-					<param name="height" value="70" />
-					<param name="label" value="Aller au Rail" />
-					<param name="onclick" value="SetFocus(23150)" />
-				</include>
-			</control>
-
-			<control type="label">
-				<left>540</left><top>145</top><width>650</width><height>45</height>
-				<font>font20_title</font><label>Test Rail / MediaCard</label>
-			</control>
-			<control type="panel" id="23150">
-				<left>540</left><top>200</top><width>720</width><height>430</height>
-				<orientation>horizontal</orientation>
-				<focusposition>0</focusposition>
-				<onup>23010</onup>
-				<ondown>23010</ondown>
-				<onleft>23010</onleft>
-				<onright>noop</onright>
-				<itemlayout width="310" height="486">
-					<include content="DejaVuMediaCard">
-						<param name="focused" value="false" />
-					</include>
-				</itemlayout>
-				<focusedlayout width="310" height="486">
-					<include content="DejaVuMediaCard">
-						<param name="focused" value="true" />
-					</include>
-				</focusedlayout>
-				<content>
-					<item><label>Démo Film 01</label><thumb>DefaultMovies.png</thumb></item>
-					<item><label>Démo Film 02</label><thumb>DefaultMovies.png</thumb></item>
-					<item><label>Démo Film 03</label><thumb>DefaultMovies.png</thumb></item>
-				</content>
-				<onclick>Notification(dejaVu,$INFO[ListItem.Label],3000)</onclick>
-			</control>
-
-			<control type="label">
-				<left>540</left><top>650</top><width>720</width><height>55</height>
-				<font>font14</font>
-				<label>Haut/bas : boutons • droite : Rail • gauche : menu Estuary • Entrée/clic : action.</label>
-				<textcolor>grey</textcolor>
-			</control>
-		</control>
 	</controls>
 </window>
