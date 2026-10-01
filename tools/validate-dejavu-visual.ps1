@@ -4,7 +4,7 @@ param()
 $ErrorActionPreference = "Stop"
 $repo = Split-Path -Parent $PSScriptRoot
 
-Write-Host "Validation visuelle initiale skin.dejaVu" -ForegroundColor Cyan
+Write-Host "Validation de la page de test dejaVu" -ForegroundColor Cyan
 
 $addonFile = Join-Path $repo "addon.xml"
 $homeFile = Join-Path $repo "xml\Home.xml"
@@ -36,11 +36,17 @@ foreach ($name in $requiredColors.Keys) {
 }
 
 $homeText = Get-Content $homeFile -Raw
-if ($homeText -notmatch "Votre espace de lecture") {
-    throw "Chrome dejaVu absent de Home.xml"
+if ($homeText -notmatch "Accueil dejaVu - tests") {
+    throw "Entrée Accueil dejaVu - tests absente du menu gauche"
 }
-if ($homeText -notmatch 'colordiffuse="button_focus"') {
-    throw "Accent visuel dejaVu absent de Home.xml"
+if ($homeText -notmatch 'Skin.HasSetting\(dejavu_test_home\)') {
+    throw "Bascule de la page de test absente de Home.xml"
+}
+if ($homeText -notmatch 'id="22001"') {
+    throw "Contrôle de test du focus absent de Home.xml"
+}
+if ($homeText -match "Votre espace de lecture|dejaVu navigation chrome") {
+    throw "L'habillage graphique provisoire doit rester désactivé"
 }
 if (-not $homeXml.window.controls) {
     throw "Home.xml invalide"
@@ -48,7 +54,9 @@ if (-not $homeXml.window.controls) {
 
 Write-Host "[OK] addon.xml"
 Write-Host "[OK] palette burgundy/dark"
-Write-Host "[OK] chrome visuel Home"
+Write-Host "[OK] menu gauche vers la page de test"
+Write-Host "[OK] page de test et contrôles de focus/actions"
+Write-Host "[OK] habillage graphique provisoire retiré"
 Write-Host ""
-Write-Host "Validation visuelle initiale : OK" -ForegroundColor Green
-Write-Host "Prochaine etape : validation visuelle Kodi 21 puis iteration Home dejaVu."
+Write-Host "Validation de la page de test : OK" -ForegroundColor Green
+Write-Host "Prochaine étape : tester le menu gauche et les contrôles dans Kodi 21."
