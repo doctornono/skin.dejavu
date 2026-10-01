@@ -79,10 +79,13 @@ Write-Host "[OK] addon.xml / skin.dejavu / xbmc.gui 5.17.0"
 
 # Baseline file-count checks
 $xmlCount = @(Get-ChildItem (Join-Path $repo "xml") -File -Filter "*.xml").Count
-if ($xmlCount -ne 104) {
-    throw "xml/: nombre inattendu ($xmlCount, attendu 104 pour Estuary Omega)"
+if ($xmlCount -ne 105) {
+    throw "xml/: nombre inattendu ($xmlCount, attendu 105 = 104 Estuary Omega + 1 dejaVu)"
 }
-Write-Host "[OK] xml/ contient 104 fichiers XML"
+if (-not (Test-Path (Join-Path $repo "xml\Includes_DejaVu.xml") -PathType Leaf)) {
+    throw "xml/: Includes_DejaVu.xml absent"
+}
+Write-Host "[OK] xml/ contient 104 fichiers Estuary Omega + 1 fichier dejaVu"
 
 $leftover = @(
     "resources\styles\tokens.xml",
