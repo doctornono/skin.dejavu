@@ -10,29 +10,25 @@ if (-not (Test-Path (Join-Path $repo "addon.xml"))) {
   throw "addon.xml introuvable dans $repo"
 }
 
-# Development mode: Kodi may point directly (or through a junction/symlink)
-# to this repository. Never delete or copy into the development tree.
-$targetResolved = $null
-if (Test-Path $target) {
-  try {
-    $targetResolved = (Resolve-Path -LiteralPath $target).Path
+# skin.dejaVu is developed through a Kodi junction. In that mode the repository
+# IS the Kodi addon directory: never copy, clean, or delete it.
+$targetItem = Get-Item -LiteralPath $target -Force -ErrorAction SilentlyContinue
+if ($targetItem -and ($targetItem.Attributes -band [IO.FileAttributes]::ReparsePoint)) {
+  $targetResolved = $null
+  try { $targetResolved = (Resolve-Path -LiteralPath $target).Path } catch {}
+  if ($targetResolved -eq $repo) {
+    Write-Host "Mode developpement: Kodi pointe directement vers le depot $repo"
+    Write-Host "Aucune copie ni suppression effectuee."
+    Write-Host "Mise a jour Kodi: git pull dans le depot, puis rechargement de la skin."
+    exit 0
   }
-  catch {
-    $targetResolved = $null
-  }
+
+  throw "SECURITE: $target est un lien/junction. Installation refusee pour eviter toute suppression indirecte."
 }
 
-if ($targetResolved -and $targetResolved -eq $repo) {
-  Write-Host "Mode developpement detecte: Kodi utilise directement le depot $repo"
-  Write-Host "Aucune copie ni suppression effectuee."
-  Write-Host "Pour mettre a jour Kodi, utilisez simplement git pull dans le depot."
-  exit 0
-}
-
-# Safety guard: a real development repository contains .git.
-# Refuse to delete it even if the Kodi path is linked through a junction.
+# A real development checkout must never be treated as an installation target.
 if (Test-Path (Join-Path $target ".git")) {
-  throw "SECURITE: $target semble etre le depot de developpement (presence de .git). Installation annulee; aucun fichier n'a ete supprime."
+  throw "SECURITE: $target contient .git. Installation annulee; aucun fichier n'a ete supprime."
 }
 
 if (-not (Test-Path $target)) {
