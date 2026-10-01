@@ -35,21 +35,30 @@
       <font>font20_title</font><textcolor>FFFFFFFF</textcolor>
       <focusedcolor>FF7B2820</focusedcolor>
       <onleft>1003</onleft><onright>1003</onright><onup>1002</onup><ondown>1003</ondown>
-      <onclick>ActivateWindow(settings,lookandfeel)</onclick>
+      <onclick>LoadSkin(skin.estuary)</onclick>
     </control>
+
     <control type="label">
-      <left>80</left><top>520</top><width>1500</width><height>100</height>
+      <left>80</left><top>520</top><width>1600</width><height>100</height>
       <label>Fondations chargées : addon.xml, Font.xml, Includes.xml et ScreenProfile.</label>
       <font>font13</font><textcolor>FFB8B8B8</textcolor><wrapmultiline>true</wrapmultiline>
     </control>
+
     <control type="label">
       <left>80</left><top>640</top><width>1600</width><height>50</height>
       <label>$LOCALIZE[14001] : $INFO[System.ScreenWidth] x $INFO[System.ScreenHeight]</label>
       <font>font12</font><textcolor>FFB8B8B8</textcolor>
     </control>
+
+    <control type="label">
+      <left>80</left><top>700</top><width>1600</width><height>45</height>
+      <label>ScreenProfile — Laptop 6 cols / 7 cartes · Desktop 8 / 9 · Mobile 3 / 3 · TV 6 / 6</label>
+      <font>font12</font><textcolor>FFB8B8B8</textcolor>
+    </control>
+
     <control type="label">
       <left>80</left><bottom>70</bottom><width>1600</width><height>40</height>
-      <label>Validation Kodi 21 — activation et rendu Home minimal</label>
+      <label>Validation Kodi 21 — activation, interaction et ScreenProfile</label>
       <font>font12</font><textcolor>FF7B2820</textcolor>
     </control>
   </controls>
