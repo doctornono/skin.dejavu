@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<includes>
+  <default type="image"><texture></texture><aspectratio>stretch</aspectratio></default>
+  <default type="label"><label></label><align>left</align><font>font13</font><textcolor>FFFFFFFF</textcolor></default>
+  <default type="textbox"><align>left</align><textcolor>FFFFFFFF</textcolor><font>font13</font></default>
+  <default type="button"><font>font13</font><textcolor>FFFFFFFF</textcolor><disabledcolor>FF777777</disabledcolor><aligny>center</aligny></default>
+  <default type="grouplist"><itemgap>0</itemgap><align>left</align></default>
+</includes>
