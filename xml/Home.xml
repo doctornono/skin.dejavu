@@ -952,9 +952,11 @@
 				</control>
 			</control>
 
-			<control type="group" id="23000">
+			<control type="button" id="23000">
+				<include>HiddenObject</include>
+				<onfocus>ActivateWindow(11100)</onfocus>
+				<onclick>ActivateWindow(11100)</onclick>
 				<visible>String.IsEqual(Container(9000).ListItem.Property(id),lists)</visible>
-				<include content="Visible_Right_Delayed"><param name="id" value="lists"/></include>
 			</control>
 
 			<control type="group">
