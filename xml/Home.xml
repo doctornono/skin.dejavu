@@ -977,7 +977,7 @@
 						<param name="browse_mode" value="never" />
 					</include>
 					<include content="WidgetListPoster">
-						<param name="content_path" value="plugin://script.dejavu?action=list_items&amp;list_id=cmsyph5aj000p04jmpdgz5ort&amp;page=1" />
+						<param name="content_path" value="plugin://script.dejavu?action=list_items&amp;list_id=cmsyph5aj000p04jmpdgz5ort&amp;page=1&amp;type=movie" />
 						<param name="widget_header" value="We're gonna need a bigger boat" />
 						<param name="widget_target" value="videos" />
 						<param name="list_id" value="25050" />
