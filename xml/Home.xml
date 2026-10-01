@@ -34,7 +34,7 @@
       <label>Retourner sur la skin Estuary</label>
       <font>font20_title</font><textcolor>FFFFFFFF</textcolor>
       <focusedcolor>FF7B2820</focusedcolor>
-      <onleft>1003</onleft><onright>1003</onright><onup>1002</onup><ondown>1003</ondown>
+      <onleft>1003</onleft><onright>1004</onright><onup>1002</onup><ondown>1003</ondown>
       <visible>System.HasAddon(script.dejavu)</visible>
       <onclick>RunScript(script.dejavu,action=switch_skin,skin=skin.estuary)</onclick>
     </control>
