@@ -955,7 +955,7 @@
 			<control type="button" id="23000">
 				<include>HiddenObject</include>
 				<onfocus>ActivateWindow(11100)</onfocus>
-				<onclick>ActivateWindow(11100)</onclick>
+				<onclick>ActivateWindow(11101)</onclick>
 				<visible>String.IsEqual(Container(9000).ListItem.Property(id),lists)</visible>
 			</control>
 
