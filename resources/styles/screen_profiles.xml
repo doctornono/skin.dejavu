@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<includes>
+  <constant name="screen.profile.laptop">laptop</constant>
+  <constant name="screen.profile.desktop">desktop</constant>
+  <constant name="screen.profile.mobile">mobile</constant>
+  <constant name="screen.profile.tv">tv</constant>
+
+  <constant name="screen.laptop.grid.columns">6</constant>
+  <constant name="screen.desktop.grid.columns">8</constant>
+  <constant name="screen.mobile.grid.columns">3</constant>
+  <constant name="screen.tv.grid.columns">6</constant>
+
+  <constant name="screen.laptop.rail.cards">7</constant>
+  <constant name="screen.desktop.rail.cards">9</constant>
+  <constant name="screen.mobile.rail.cards">3</constant>
+  <constant name="screen.tv.rail.cards">6</constant>
+
+  <constant name="screen.laptop.touch.min">44</constant>
+  <constant name="screen.desktop.touch.min">44</constant>
+  <constant name="screen.mobile.touch.min">48</constant>
+  <constant name="screen.tv.touch.min">48</constant>
+
+  <constant name="screen.laptop.focus.scale">1</constant>
+  <constant name="screen.desktop.focus.scale">1</constant>
+  <constant name="screen.mobile.focus.scale">1.1</constant>
+  <constant name="screen.tv.focus.scale">1.25</constant>
+</includes>
