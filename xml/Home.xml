@@ -35,18 +35,31 @@
       <focusedcolor>FF7B2820</focusedcolor>
       <onleft>1001</onleft>
       <onright>1001</onright>
-      <onup>1002</onup>
-      <ondown>1002</ondown>
+      <onup>1003</onup>
+      <ondown>1003</ondown>
       <onclick>ReloadSkin()</onclick>
     </control>
 
+    <control type="button" id="1003">
+      <left>80</left><top>400</top><width>1080</width><height>72</height>
+      <label>Retourner sur la skin Estuary</label>
+      <font>font20_title</font>
+      <textcolor>FFFFFFFF</textcolor>
+      <focusedcolor>FF7B2820</focusedcolor>
+      <onleft>1003</onleft>
+      <onright>1003</onright>
+      <onup>1002</onup>
+      <ondown>1003</ondown>
+      <onclick>Skin.SetString(skin.dejavu.previous,skin.estuary)</onclick>
+    </control>
+
     <control type="label">
-      <left>80</left><top>420</top><width>1500</width><height>100</height>
+      <left>80</left><top>520</top><width>1500</width><height>100</height>
       <label>Fondations chargées : addon.xml, Font.xml, Includes.xml et ScreenProfile.</label>
       <font>font13</font><textcolor>FFB8B8B8</textcolor><wrapmultiline>true</wrapmultiline>
     </control>
     <control type="label">
-      <left>80</left><top>540</top><width>1600</width><height>50</height>
+      <left>80</left><top>640</top><width>1600</width><height>50</height>
       <label>$LOCALIZE[14001] : $INFO[System.ScreenWidth] x $INFO[System.ScreenHeight]</label>
       <font>font12</font><textcolor>FFB8B8B8</textcolor>
     </control>
