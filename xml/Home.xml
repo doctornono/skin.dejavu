@@ -1075,7 +1075,7 @@
 						</item>
 						<item>
 							<label>Listes</label>
-							<onclick>ActivateWindow(11100)</onclick>
+							<onclick>noop</onclick>
 							<property name="menu_id">$NUMBER[23000]</property>
 							<thumb>icons/sidemenu/favourites.png</thumb>
 							<property name="id">lists</property>
