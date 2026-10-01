@@ -27,9 +27,6 @@
 			<control type="group">
 				<width>$PARAM[width]</width>
 				<height>$PARAM[height]</height>
-				<animation type="Focus">
-					<effect type="zoom" start="100" end="106" time="120" center="$PARAM[width],$PARAM[height] / 2" />
-				</animation>
 				<control type="image">
 					<left>10</left>
 					<top>10</top>
