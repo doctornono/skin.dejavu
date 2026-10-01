@@ -35,7 +35,7 @@
       <font>font20_title</font><textcolor>FFFFFFFF</textcolor>
       <focusedcolor>FF7B2820</focusedcolor>
       <onleft>1003</onleft><onright>1003</onright><onup>1002</onup><ondown>1003</ondown>
-      <onclick>LoadSkin(skin.estuary)</onclick>
+      <onclick>RunScript(skin.dejavu,skin.estuary)</onclick>
     </control>
 
     <control type="label">
