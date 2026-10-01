@@ -11,6 +11,10 @@
 		<param name="height">75</param>
 		<param name="label">dejaVu button</param>
 		<param name="onclick">Notification(dejaVu, Button action,3000)</param>
+		<param name="onup">noop</param>
+		<param name="ondown">noop</param>
+		<param name="onleft">9000</param>
+		<param name="onright">noop</param>
 		<definition>
 			<control type="button" id="$PARAM[control_id]">
 				<left>$PARAM[left]</left>
@@ -19,6 +23,10 @@
 				<height>$PARAM[height]</height>
 				<label>$PARAM[label]</label>
 				<onclick>$PARAM[onclick]</onclick>
+				<onup>$PARAM[onup]</onup>
+				<ondown>$PARAM[ondown]</ondown>
+				<onleft>$PARAM[onleft]</onleft>
+				<onright>$PARAM[onright]</onright>
 			</control>
 		</definition>
 	</include>
