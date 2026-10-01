@@ -35,7 +35,8 @@
       <font>font20_title</font><textcolor>FFFFFFFF</textcolor>
       <focusedcolor>FF7B2820</focusedcolor>
       <onleft>1003</onleft><onright>1003</onright><onup>1002</onup><ondown>1003</ondown>
-      <onclick>RunScript(skin.dejavu,skin.estuary)</onclick>
+      <visible>System.HasAddon(script.dejavu)</visible>
+      <onclick>RunScript(script.dejavu,action=switch_skin,skin=skin.estuary)</onclick>
     </control>
 
     <control type="label">
