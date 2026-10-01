@@ -1182,15 +1182,13 @@
 
 			<include content="DejaVuButton">
 				<param name="control_id" value="23001" />
+				<param name="left" value="0" />
+				<param name="top" value="160" />
 				<param name="label" value="Test du Button" />
 				<param name="onclick" value="Notification(dejaVu, Button fonctionnel,3000)" />
 				<param name="width" value="500" />
 				<param name="height" value="70" />
 			</include>
-			<control type="button" id="23001_nav">
-				<include>HiddenObject</include>
-				<onfocus>SetFocus(23001)</onfocus>
-			</control>
 
 			<control type="button" id="23002">
 				<left>0</left><top>250</top><width>500</width><height>70</height>
